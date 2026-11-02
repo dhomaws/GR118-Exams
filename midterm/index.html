@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="7 اختبارات لمادة GR118 على الوحدات 1 و2 و3">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>اختبارات GR118  للميد تيرم</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: Apple-style glass, same system as the GR118 quiz site. Home = list of 7 exam cells; exam view = header card, mode sheet or result card, question cards, floating submit bar. */
+:root{
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Arabic","IBM Plex Sans Arabic","Segoe UI",sans-serif;
+  --bg:#eef0f6; --ink:#1d1d1f; --ink-2:#6e6e73; --ink-3:#aeaeb2;
+  --glass:rgba(255,255,255,.58); --glass-hi:rgba(255,255,255,.86); --stroke:rgba(255,255,255,.75); --highlight:rgba(255,255,255,.9);
+  --fill:rgba(255,255,255,.6); --fill-2:rgba(118,118,128,.12); --hair:rgba(60,60,67,.13); --thumb:#ffffff;
+  --accent:#007aff; --accent-tint:rgba(0,122,255,.12); --on-accent:#ffffff;
+  --green:#34c759; --green-ink:#1f8a3b; --green-tint:rgba(52,199,89,.15);
+  --red:#ff3b30; --red-ink:#d70015; --red-tint:rgba(255,59,48,.12);
+  --orange-ink:#b25000; --orange-tint:rgba(255,149,0,.16);
+  --shadow:0 10px 40px rgba(28,40,90,.10),0 1px 2px rgba(28,40,90,.06);
+  --scrim:rgba(20,22,30,.28);
+  --blob-a:.55;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#05060a; --ink:#f5f5f7; --ink-2:#a1a1a6; --ink-3:#636366;
+  --glass:rgba(30,30,34,.56); --glass-hi:rgba(44,44,48,.86); --stroke:rgba(255,255,255,.09); --highlight:rgba(255,255,255,.07);
+  --fill:rgba(118,118,128,.16); --fill-2:rgba(118,118,128,.24); --hair:rgba(84,84,88,.5); --thumb:#636366;
+  --accent:#0a84ff; --accent-tint:rgba(10,132,255,.2); --on-accent:#ffffff;
+  --green:#30d158; --green-ink:#30d158; --green-tint:rgba(48,209,88,.16);
+  --red:#ff453a; --red-ink:#ff6961; --red-tint:rgba(255,69,58,.16);
+  --orange-ink:#ffb340; --orange-tint:rgba(255,159,10,.18);
+  --shadow:0 10px 40px rgba(0,0,0,.45);
+  --scrim:rgba(0,0,0,.5);
+  --blob-a:.32; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#05060a; --ink:#f5f5f7; --ink-2:#a1a1a6; --ink-3:#636366;
+  --glass:rgba(30,30,34,.56); --glass-hi:rgba(44,44,48,.86); --stroke:rgba(255,255,255,.09); --highlight:rgba(255,255,255,.07);
+  --fill:rgba(118,118,128,.16); --fill-2:rgba(118,118,128,.24); --hair:rgba(84,84,88,.5); --thumb:#636366;
+  --accent:#0a84ff; --accent-tint:rgba(10,132,255,.2); --on-accent:#ffffff;
+  --green:#30d158; --green-ink:#30d158; --green-tint:rgba(48,209,88,.16);
+  --red:#ff453a; --red-ink:#ff6961; --red-tint:rgba(255,69,58,.16);
+  --orange-ink:#ffb340; --orange-tint:rgba(255,159,10,.18);
+  --shadow:0 10px 40px rgba(0,0,0,.45);
+  --scrim:rgba(0,0,0,.5);
+  --blob-a:.32; color-scheme:dark}
+
+.app{--b1:#5ac8fa;--b2:#5856d6;--b3:#007aff}
+.app[data-pal="1"]{--b1:#5ac8fa;--b2:#5856d6;--b3:#007aff}
+.app[data-pal="2"]{--b1:#ff2d55;--b2:#af52de;--b3:#ff9f0a}
+.app[data-pal="3"]{--b1:#30b0c7;--b2:#34c759;--b3:#ffcc00}
+.app[data-pal="4"]{--b1:#ff9500;--b2:#ff2d55;--b3:#5856d6}
+.app[data-pal="5"]{--b1:#34c759;--b2:#007aff;--b3:#5ac8fa}
+.app[data-pal="6"]{--b1:#af52de;--b2:#5ac8fa;--b3:#ff9f0a}
+.app[data-pal="7"]{--b1:#ffcc00;--b2:#ff3b30;--b3:#30b0c7}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+
+.field{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blob{position:absolute;width:70vmax;height:70vmax;border-radius:50%;opacity:var(--blob-a)}
+.blob.b1{top:-30vmax;inset-inline-start:-20vmax;background:radial-gradient(circle,var(--b1) 0,transparent 62%);animation:drift1 38s ease-in-out infinite alternate}
+.blob.b2{top:25vh;inset-inline-end:-35vmax;background:radial-gradient(circle,var(--b2) 0,transparent 62%);animation:drift2 46s ease-in-out infinite alternate}
+.blob.b3{bottom:-40vmax;inset-inline-start:5vw;background:radial-gradient(circle,var(--b3) 0,transparent 60%);animation:drift1 52s ease-in-out infinite alternate-reverse}
+@keyframes drift1{to{transform:translate(6vmax,5vmax) scale(1.08)}}
+@keyframes drift2{to{transform:translate(-5vmax,-6vmax) scale(1.06)}}
+
+.glass{background:var(--glass);-webkit-backdrop-filter:blur(28px) saturate(180%);backdrop-filter:blur(28px) saturate(180%);border:1px solid var(--stroke);box-shadow:var(--shadow),inset 0 1px 0 var(--highlight)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:var(--glass-hi)}}
+
+.app{position:relative;z-index:1}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;border-width:0 0 1px;border-radius:0;box-shadow:none}
+.nav-inner{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:10px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;min-height:44px}
+.nav-title{font-weight:600;font-size:16px;text-align:center;white-space:nowrap}
+.nav-side{display:flex;align-items:center;gap:6px;min-width:0}
+.nav-side.end{justify-content:flex-end;font-size:13px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.back{font:inherit;font-size:16px;color:var(--accent);background:transparent;border:0;padding:4px 2px;cursor:pointer;display:inline-flex;align-items:center;gap:2px}
+.back svg{width:18px;height:18px}
+.clock{display:inline-flex;align-items:center;gap:5px;background:var(--fill-2);border-radius:99px;padding:3px 10px;color:var(--ink);font-weight:500}
+.clock svg{width:14px;height:14px;color:var(--ink-2)}
+
+.page{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 64px;display:flex;flex-direction:column;gap:16px}
+.page.with-bar{padding-bottom:calc(120px + env(safe-area-inset-bottom,0px))}
+
+/* shared */
+.eyebrow{font-size:13px;font-weight:600;color:var(--accent)}
+h1{margin:0;font-size:clamp(28px,6.4vw,40px);line-height:1.2;font-weight:700;text-wrap:balance}
+h2{margin:0;font-size:22px;font-weight:700;text-wrap:balance}
+.lede{margin:0;color:var(--ink-2);font-size:15px;max-width:56ch}
+.btn{font:inherit;font-size:16px;font-weight:600;border:0;border-radius:14px;padding:12px 20px;cursor:pointer;background:var(--accent);color:var(--on-accent);transition:transform .12s ease,opacity .12s ease}
+.btn:active{transform:scale(.98)}
+.btn.secondary{background:var(--fill-2);color:var(--ink)}
+.btn.danger{background:var(--red);color:#fff}
+.btn.small{font-size:14px;padding:8px 14px;border-radius:11px}
+.btn.tint{background:var(--accent-tint);color:var(--accent)}
+.rings{position:relative;width:112px;height:112px;flex:none}
+.rings svg{width:100%;height:100%;transform:rotate(-90deg)}
+.rings circle{fill:none;stroke-linecap:round;stroke-width:10}
+.rings .track{stroke:var(--fill-2)}
+.rings .r-a{stroke:var(--accent);transition:stroke-dasharray .5s ease}
+.rings .r-b{stroke:var(--green);transition:stroke-dasharray .5s ease}
+.rings .center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.15;text-align:center}
+.rings .big{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.rings .small{font-size:10px;color:var(--ink-2)}
+
+/* home */
+.hero{border-radius:28px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.hstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.hstat{background:var(--fill);border-radius:16px;padding:10px 12px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.hstat b{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2}
+.hstat span{font-size:12px;color:var(--ink-2)}
+.modes-note{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+.mnote{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink-2);background:var(--fill);border-radius:14px;padding:10px 12px;min-width:0}
+.mnote svg{width:20px;height:20px;flex:none;color:var(--accent);margin-top:2px}
+.mnote b{display:block;color:var(--ink);font-size:14px}
+.section-label{font-size:13px;font-weight:600;color:var(--ink-2);padding-inline:6px;margin-bottom:-6px}
+.exam-list{display:flex;flex-direction:column;gap:12px}
+.ecell{border-radius:22px;padding:14px 16px;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;cursor:pointer;text-align:start;font:inherit;color:inherit;width:100%;transition:transform .15s ease}
+.ecell:hover{transform:translateY(-1px)}
+.ecell:active{transform:scale(.99)}
+.mring{position:relative;width:54px;height:54px}
+.mring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.mring circle{fill:none;stroke-width:6;stroke-linecap:round}
+.mring .track{stroke:var(--fill-2)}
+.mring .val{stroke:var(--c,var(--accent))}
+.mring span{position:absolute;inset:0;display:grid;place-items:center;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+.ecell .info{min-width:0;display:flex;flex-direction:column;gap:2px}
+.ecell .t{font-size:17px;font-weight:600}
+.ecell .s{font-size:13px;color:var(--ink-2)}
+.ecell .go{display:flex;align-items:center;gap:4px;color:var(--accent);font-size:15px;font-weight:600;white-space:nowrap}
+.ecell .go svg{width:16px;height:16px}
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:600;border-radius:99px;padding:1px 9px;width:max-content}
+.pill.idle{background:var(--fill-2);color:var(--ink-2)}
+.pill.active{background:var(--orange-tint);color:var(--orange-ink)}
+.pill.done{background:var(--green-tint);color:var(--green-ink)}
+.foot{text-align:center;font-size:12px;color:var(--ink-2)}
+
+/* exam head */
+.ehead{border-radius:28px;padding:22px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+.ehead .txt{min-width:0;display:flex;flex-direction:column;gap:6px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;color:var(--ink-2);background:var(--fill-2);border-radius:99px;padding:2px 10px;font-variant-numeric:tabular-nums}
+.chip.mode{background:var(--accent-tint);color:var(--accent);font-weight:600}
+
+/* mode sheet */
+.sheet{border-radius:28px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.sheet p{margin:0;color:var(--ink-2);font-size:14px}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice{font:inherit;color:var(--ink);text-align:start;background:var(--fill);border:2px solid transparent;border-radius:18px;padding:14px;cursor:pointer;display:flex;flex-direction:column;gap:6px;min-width:0}
+.choice .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--fill-2);color:var(--ink-2)}
+.choice .ic svg{width:20px;height:20px}
+.choice b{font-size:16px}
+.choice span{font-size:13px;color:var(--ink-2);line-height:1.5}
+.choice[aria-checked="true"]{border-color:var(--accent);background:var(--accent-tint)}
+.choice[aria-checked="true"] .ic{background:var(--accent);color:#fff}
+.sheet .btn{align-self:stretch}
+
+/* result */
+.result{border-radius:28px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.res-top{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.res-score{display:flex;flex-direction:column;gap:2px;min-width:0}
+.res-score .num{font-size:44px;font-weight:700;line-height:1.1;font-variant-numeric:tabular-nums}
+.res-score .num small{font-size:20px;color:var(--ink-2);font-weight:600}
+.res-score .grade{font-size:17px;font-weight:600}
+.res-score .meta{font-size:13px;color:var(--ink-2)}
+.units-break{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ub{background:var(--fill);border-radius:14px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.ub .l{font-size:12px;color:var(--ink-2)}
+.ub .v{font-size:17px;font-weight:700;font-variant-numeric:tabular-nums}
+.ub .bar{height:4px;border-radius:99px;background:var(--fill-2);overflow:hidden}
+.ub .bar span{display:block;height:100%;background:var(--green)}
+.res-actions{display:flex;flex-wrap:wrap;gap:8px}
+
+/* toolbar */
+.toolbar{border-radius:20px;padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:inline-flex;background:var(--fill-2);border-radius:10px;padding:2px}
+.seg button{font:inherit;font-size:13px;font-weight:500;border:0;background:transparent;color:var(--ink);padding:6px 12px;border-radius:8px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--thumb);box-shadow:0 2px 6px rgba(0,0,0,.12);font-weight:600}
+select{font:inherit;font-size:13px;color:var(--ink);background-color:var(--fill-2);border:0;border-radius:10px;padding:7px 12px 7px 30px;max-width:100%;min-width:0;flex:1 1 140px;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%238e8e93' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 12px center}
+
+/* questions */
+.list{display:flex;flex-direction:column;gap:14px}
+.q{border-radius:24px;padding:18px;display:flex;flex-direction:column;gap:12px;scroll-margin-top:90px;content-visibility:auto;contain-intrinsic-size:auto 330px}
+.q-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:12px;color:var(--ink-2)}
+.q-num{font-weight:700;font-size:13px;color:var(--ink);background:var(--fill-2);border-radius:99px;padding:2px 10px;font-variant-numeric:tabular-nums}
+.past{background:var(--orange-tint);color:var(--orange-ink);border-radius:99px;padding:1px 9px;font-weight:600}
+.q-state{margin-inline-start:auto;font-weight:600;font-size:13px}
+.q.is-ok .q-state{color:var(--green-ink)} .q.is-bad .q-state{color:var(--red-ink)} .q.is-skip .q-state{color:var(--orange-ink)}
+.q-text{margin:0;font-size:17px;font-weight:600;line-height:1.6}
+.opts{border-radius:16px;overflow:hidden;background:var(--fill)}
+.opt{font:inherit;color:var(--ink);width:100%;text-align:start;background:transparent;border:0;border-top:1px solid var(--hair);display:grid;grid-template-columns:24px auto 1fr;gap:10px;align-items:center;padding:12px 14px;cursor:pointer;transition:background .15s ease,opacity .15s ease}
+.opt:first-child{border-top:0}
+.opt:hover:not(:disabled){background:var(--fill-2)}
+.opt:disabled{cursor:default}
+.dot{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--ink-3);display:grid;place-items:center;color:#fff}
+.dot svg{width:12px;height:12px;display:none}
+.letter{font-size:13px;color:var(--ink-2);direction:ltr;font-variant-numeric:tabular-nums}
+.opt-text{min-width:0}
+.opt.picked{background:var(--accent-tint)}
+.opt.picked .dot{background:var(--accent);border-color:var(--accent)}
+.opt.picked .dot .i-pick{display:block}
+.opt.correct{background:var(--green-tint);font-weight:600}
+.opt.correct .dot{background:var(--green);border-color:var(--green)}
+.opt.correct .dot .i-ok{display:block}
+.opt.wrong{background:var(--red-tint)}
+.opt.wrong .dot{background:var(--red);border-color:var(--red)}
+.opt.wrong .dot .i-no{display:block}
+.opt.dim{opacity:.45}
+.fb{border-radius:16px;padding:12px 14px;display:grid;grid-template-columns:24px 1fr;gap:4px 10px;font-size:15px}
+.fb.anim{animation:rise .28s ease both}
+.fb.ok{background:var(--green-tint)} .fb.bad{background:var(--red-tint)} .fb.skip{background:var(--orange-tint)}
+.fb .ic{grid-row:span 3;width:22px;height:22px;margin-top:2px}
+.fb.ok .ic{color:var(--green)} .fb.bad .ic{color:var(--red)} .fb.skip .ic{color:var(--orange-ink)}
+.fb p{margin:0}
+.fb .verdict{font-weight:700}
+.fb.ok .verdict{color:var(--green-ink)} .fb.bad .verdict{color:var(--red-ink)} .fb.skip .verdict{color:var(--orange-ink)}
+.fb .why{color:var(--ink-2)}
+@keyframes rise{from{opacity:.4;transform:translateY(4px)}to{opacity:1;transform:none}}
+.empty{text-align:center;color:var(--ink-2);padding:28px 16px;border-radius:24px;margin:0}
+
+/* floating bar */
+.bar-float{position:fixed;inset:auto 0 0;z-index:25;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-top:10px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));pointer-events:none}
+.bar-card{pointer-events:auto;max-width:728px;margin:0 auto;border-radius:22px;padding:10px 10px 10px 14px;display:flex;align-items:center;gap:12px}
+.bar-card .prog{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.bar-card .prog b{color:var(--ink)}
+.bar-card .track{height:4px;border-radius:99px;background:var(--fill-2);overflow:hidden;display:flex}
+.bar-card .track span{height:100%;transition:width .3s ease}
+.track .t-a{background:var(--accent)} .track .t-ok{background:var(--green)} .track .t-bad{background:var(--red)}
+
+/* confirm */
+.scrim{position:fixed;inset:0;z-index:40;background:var(--scrim);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-left,0px));animation:fade .18s ease both}
+.dialog{width:min(380px,100%);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:10px;text-align:center;background:var(--glass-hi)}
+.dialog h3{margin:0;font-size:18px}
+.dialog p{margin:0;color:var(--ink-2);font-size:14px}
+.dialog .acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+button:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+@media (max-width:560px){
+  .ehead{grid-template-columns:1fr;padding:20px}
+  .ehead .rings{width:96px;height:96px;order:-1}
+  .choices,.modes-note{grid-template-columns:1fr}
+  .res-top{grid-template-columns:1fr}
+  .units-break,.hstats{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .q{padding:16px;border-radius:22px}
+  .ecell{gap:12px;padding:12px 14px}
+  .ecell .go span{display:none}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<div class="app" id="app" dir="rtl" lang="ar" data-pal="1">
+  <div class="field" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+
+  <header class="nav glass">
+    <div class="nav-inner">
+      <div class="nav-side"><button type="button" class="back" id="backBtn" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>الاختبارات</button></div>
+      <div class="nav-title" id="navTitle">اختبارات GR118</div>
+      <div class="nav-side end" id="navEnd"></div>
+    </div>
+  </header>
+
+  <main class="page" id="page">
+    <!-- HOME -->
+    <section id="home" class="page-inner" style="display:flex;flex-direction:column;gap:16px">
+      <div class="hero glass">
+        <span class="eyebrow">GR118 · الوحدات 1 و2 و3</span>
+        <h1>7 اختبارات تجريبية للميد</h1>
+        <p class="lede">كل اختبار 40 سؤالاً موزعة على الوحدات الثلاث، بنفس نمط أسئلة الاختبارات السابقة: اختيار من متعدد وصح أو خطأ. فيها أسئلة من بنك الموقع، وأسئلة وردت في اختبارات سابقة وهي ضمن المنهج الجديد، وأسئلة جديدة بنفس الأسلوب.</p>
+        <div class="hstats">
+          <div class="hstat"><b id="hsDone">0/7</b><span>اختبارات مكتملة</span></div>
+          <div class="hstat"><b id="hsAvg">—</b><span>متوسط آخر نتيجة</span></div>
+          <div class="hstat"><b id="hsBest">—</b><span>أعلى درجة</span></div>
+        </div>
+        <div class="modes-note">
+          <div class="mnote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg><div><b>اختبار فعلي</b>تجاوب على كل الأسئلة، والتصحيح يظهر بعد التسليم مع وقتك.</div></div>
+          <div class="mnote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg><div><b>تدريب</b>الإجابة الصحيحة وسببها تظهر مباشرة بعد ما تختار.</div></div>
+        </div>
+      </div>
+      <div class="section-label">الاختبارات</div>
+      <div class="exam-list" id="examList"></div>
+      <p class="foot">نتائجك محفوظة في هذا المتصفح. الأسئلة المعلّمة بـ«ورد في اختبار سابق» مأخوذة من اختبارات الأعوام الماضية.</p>
+    </section>
+
+    <!-- EXAM -->
+    <section id="exam" hidden style="display:flex;flex-direction:column;gap:16px">
+      <div class="ehead glass">
+        <div class="txt">
+          <span class="eyebrow" id="exEyebrow"></span>
+          <h1 id="exTitle"></h1>
+          <div class="chips" id="exChips"></div>
+        </div>
+        <div class="rings" aria-hidden="true">
+          <svg viewBox="0 0 120 120">
+            <circle class="track" cx="60" cy="60" r="52"/><circle class="r-a" id="rA" cx="60" cy="60" r="52" stroke-dasharray="0 400"/>
+            <circle class="track" cx="60" cy="60" r="38"/><circle class="r-b" id="rB" cx="60" cy="60" r="38" stroke-dasharray="0 400"/>
+          </svg>
+          <div class="center"><span class="big" id="ringBig">0</span><span class="small" id="ringSmall">من 40</span></div>
+        </div>
+      </div>
+
+      <div class="sheet glass" id="modeSheet" hidden>
+        <h2>اختر طريقة الاختبار</h2>
+        <div class="choices" role="radiogroup" aria-label="طريقة الاختبار">
+          <button type="button" class="choice" id="chExam" role="radio" data-mode="exam" aria-checked="true">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></span>
+            <b>اختبار فعلي</b>
+            <span>تقدر تغيّر إجاباتك قبل التسليم. التصحيح والإجابات الصحيحة تظهر بعد ما تسلّم، مع الوقت اللي أخذته.</span>
+          </button>
+          <button type="button" class="choice" id="chPractice" role="radio" data-mode="practice" aria-checked="false">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>
+            <b>تدريب</b>
+            <span>أول ما تختار إجابة يظهر لك إذا كانت صحيحة، والإجابة الصحيحة وسببها تحت السؤال.</span>
+          </button>
+        </div>
+        <button type="button" class="btn" id="startBtn">ابدأ الاختبار</button>
+      </div>
+
+      <div class="result glass" id="resultCard" hidden></div>
+
+      <div class="toolbar glass" id="toolbar" hidden>
+        <div class="seg" role="group" aria-label="عرض الأسئلة">
+          <button type="button" id="fAll" data-f="all" aria-pressed="true">الكل</button>
+          <button type="button" id="fWrong" data-f="wrong" aria-pressed="false">الخاطئة</button>
+          <button type="button" id="fOpen" data-f="open" aria-pressed="false">بدون إجابة</button>
+        </div>
+        <select id="unitSel" aria-label="الوحدة">
+          <option value="all">كل الوحدات</option>
+          <option value="1">الوحدة 1: المعرفة والمهارة والقدرة</option>
+          <option value="2">الوحدة 2: الذكاء العاطفي</option>
+          <option value="3">الوحدة 3: مهارات التواصل الفعال</option>
+        </select>
+      </div>
+
+      <div class="list" id="list"></div>
+      <p class="empty glass" id="empty" hidden>لا توجد أسئلة في هذا العرض.</p>
+    </section>
+  </main>
+
+  <div class="bar-float" id="barFloat" hidden>
+    <div class="bar-card glass">
+      <div class="prog">
+        <span id="barText"></span>
+        <div class="track" id="barTrack"></div>
+      </div>
+      <button type="button" class="btn small" id="barBtn">تسليم الاختبار</button>
+    </div>
+  </div>
+
+  <div class="scrim" id="scrim" hidden>
+    <div class="dialog glass" role="dialog" aria-modal="true" aria-labelledby="dlgTitle">
+      <h3 id="dlgTitle"></h3>
+      <p id="dlgText"></p>
+      <div class="acts">
+        <button type="button" class="btn secondary" id="dlgNo">رجوع</button>
+        <button type="button" class="btn" id="dlgYes">تأكيد</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const EXAMS=[[{"u":3,"src":"site","t":"tf","q":"الاستماع الفعال يعني سماع الرسالة بشكل سلبي","o":["True","False"],"a":1,"why":"الاستماع الفعال يعني المشاركة والتركيز على الرسالة بدلاً من سماعها بشكل سلبي."},{"u":2,"src":"new","t":"mc","q":"من صفات الشخص الذي لديه مهارات وعي ذاتي جيد","o":["يتقبل النقد والتغذية الراجعة","جميع البدائل صحيحة","يتحمل مسؤولية سلوكه وقراراته","يتحكم في ردود أفعاله وانفعالاته"],"a":1,"why":"كلها من صفات صاحب الوعي الذاتي الجيد."},{"u":1,"src":"site","t":"tf","q":"قاعدة الخمس دقائق من استراتيجيات التغلب على التسويف","o":["True","False"],"a":0,"why":"ابدأ بخطوة صغيرة جداً لكسر حاجز البداية."},{"u":1,"src":"past","t":"mc","q":"من أقسام الذاكرة، وهي عبارة عن خزان يضم كماً كبيراً من المعلومات والخبرات والمشاعر","o":["الذاكرة الحسية","الذاكرة بعيدة المدى","الذاكرة قصيرة المدى","الذاكرة المعرفية"],"a":1,"why":"الذاكرة طويلة (بعيدة) المدى تخزن المعلومات لفترات طويلة، وتشمل المعلومات والخبرات والمشاعر."},{"u":2,"src":"site","t":"tf","q":"انخفاض الذكاء العاطفي لا يؤثر على الصحة الاجتماعية","o":["True","False"],"a":1,"why":"قد يمنعك من التصرف بشكل ملائم في المواقف الاجتماعية ومن إقامة علاقات والاحتفاظ بها."},{"u":1,"src":"past","t":"tf","q":"ترتبط الذاكرة قصيرة المدى بالذاكرة العاملة التي تنشط عند معالجة المعلومات حتى تصبح قابلة للتخزين في الذاكرة طويلة المدى","o":["True","False"],"a":0,"why":"الذاكرة العاملة تنشط عند معالجة المعلومات وحل المشكلات وربطها بالمعرفة السابقة."},{"u":1,"src":"site","t":"tf","q":"إجراء الإسعافات الأولية مثال على المعرفة النظرية","o":["True","False"],"a":1,"why":"الإسعافات الأولية مهارة عملية تنقذ الأرواح، وهي من أمثلة المهارات في الوحدة."},{"u":3,"src":"new","t":"mc","q":"يُصنّف الاستماع ضمن","o":["التواصل المرئي","مهارات الاستيعاب","مهارات الإنتاج","التواصل المكتوب"],"a":1,"why":"الاستيعاب: القراءة والاستماع. الإنتاج: التحدث والكتابة."},{"u":3,"src":"site","t":"mc","q":"إقناع الآخرين وتوجيه آرائهم أو سلوكياتهم نحو أهداف محددة","o":["التأثير","الإعلام","التعبير","التوقعات الاجتماعية"],"a":0,"why":"هذا تعريف غرض التأثير."},{"u":3,"src":"site","t":"tf","q":"التواصل اللفظي لا علاقة له بمهارة الاستماع","o":["True","False"],"a":1,"why":"التواصل اللفظي مزيج متوازن بين مهارة التحدث وبراعة الاستماع."},{"u":2,"src":"site","t":"mc","q":"التعاطف وإدراك الإشارات الاجتماعية والوعي المؤسسي مصطلحات ترتبط بمكون ......","o":["إدارة الذات","إدارة العلاقات","الوعي الاجتماعي","الوعي الذاتي"],"a":2,"why":"مصطلحات الوعي الاجتماعي: الوعي بالمجموعة، الوعي المؤسسي، التعاطف، إدراك الإشارات الاجتماعية."},{"u":2,"src":"new","t":"tf","q":"التعاطف هو القدرة على فهم مشاعر الآخرين ومشاركتهم فيها، ويرتبط بمكوّن الوعي الاجتماعي","o":["True","False"],"a":0,"why":"التعاطف من المصطلحات المرتبطة بالوعي الاجتماعي."},{"u":2,"src":"past","t":"tf","q":"الذكاء العاطفي يؤدي دوراً كبيراً في التوافق والتكيف مع الحياة، مما يساعد على تجاوز المشكلات بشكل إيجابي","o":["True","False"],"a":0,"why":"نص شريحة أهمية الذكاء العاطفي."},{"u":1,"src":"site","t":"mc","q":"تنظيم المعلومات بشكل هرمي من العناوين الرئيسية إلى الفرعية","o":["الخريطة الذهنية","طريقة كورنيل","طريقة الجداول","طريقة المخطط"],"a":3,"why":"طريقة المخطط مناسبة للمحاضرات المنظمة وتعطي ترتيباً منطقياً متسلسلاً."},{"u":3,"src":"site","t":"tf","q":"إقرار المتلقي بالفهم هو المرحلة الأولى من عملية التواصل","o":["True","False"],"a":1,"why":"هو المرحلة الخامسة والأخيرة."},{"u":1,"src":"past","t":"mc","q":"ممارسة التمارين لحرق الطاقة الزائدة تُعدّ من استراتيجيات الذكاء ...... لتحسين التواصل","o":["العلمي","اللغوي","البدني (الجسدي-الحركي)","الذاتي"],"a":2,"why":"الذكاء الجسدي-الحركي مرتبط باستخدام الجسم بمهارة، والتمارين البدنية من استراتيجياته."},{"u":2,"src":"past","t":"mc","q":"في الاتصال الإنساني، أفضل الذوات الأربع حسب نافذة جوهاري هي","o":["المنطقة العمياء","المنطقة المخفية","المنطقة المجهولة","المنطقة المكشوفة"],"a":3,"why":"المنطقة المكشوفة أفضل الأنواع الأربعة، وكلما كبرت كانت العلاقات أكبر."},{"u":3,"src":"site","t":"mc","q":"التفكير المسبق في صياغة الرسالة يؤدي إلى ......","o":["تأخير التواصل دون فائدة","زيادة طول الرسالة","زيادة سوء الفهم","تسهيل الفهم وتقليل الفجوات المعرفية بين الأطراف"],"a":3,"why":"من شريحة الوضوح والاختصار."},{"u":2,"src":"site","t":"mc","q":"مبادئ أو معايير السلوك، وحكم المرء على ما هو مهم في الحياة","o":["الدافع","التطلعات","القيم","المعتقدات"],"a":2,"why":"من شريحة المصطلحات المهمة."},{"u":1,"src":"site","t":"tf","q":"القراءة الصامتة هي الأكثر استخداماً أكاديمياً للسرعة والتركيز","o":["True","False"],"a":0,"why":"كما في شريحة القراءة الجهرية والصامتة."},{"u":3,"src":"site","t":"mc","q":"عدد مراحل عملية التواصل في الوحدة","o":["خمس","أربع","ثلاث","ست"],"a":0,"why":"تحديد المصدر والرسالة، تحديد نوع التواصل، إرسال الرسالة، تلقي الرسالة، إقرار المتلقي بالفهم."},{"u":2,"src":"site","t":"tf","q":"الإرشاد والدعم والتأثير من المصطلحات المرتبطة بالوعي الذاتي","o":["True","False"],"a":1,"why":"هذه مصطلحات إدارة العلاقات."},{"u":1,"src":"new","t":"mc","q":"حسب نموذج فيتس وبوسنر، المرحلة التي يمارس فيها المتعلم المهارة ويحسّن أداءه تدريجياً وتقل فيها أخطاؤه","o":["المرحلة التلقائية","المرحلة الحسية","المرحلة الارتباطية","المرحلة المعرفية"],"a":2,"why":"المراحل: المعرفية (المبتدئ)، ثم الارتباطية (التحسن التدريجي)، ثم التلقائية (الأداء دون تفكير واعٍ)."},{"u":1,"src":"site","t":"mc","q":"عملية استعادة المعلومات عن طريق بذل مجهود عقلي","o":["التحفيز","التذكر","التعلم","التصور"],"a":1,"why":"التعلم هو الاكتساب، والتذكر هو استعادة ما تم تعلمه بمجهود عقلي."},{"u":2,"src":"new","t":"tf","q":"القيادة والعمل الجماعي وحل النزاعات مصطلحات ترتبط بمكوّن إدارة الذات","o":["True","False"],"a":1,"why":"هذه مصطلحات إدارة العلاقات. إدارة الذات تشمل التحكم في الذات والتكيف وإدارة الوقت."},{"u":3,"src":"site","t":"tf","q":"اختيار نمط التواصل المناسب يعتمد على السياق والجمهور","o":["True","False"],"a":0,"why":"كما في شريحة التواصل الرسمي وغير الرسمي."},{"u":3,"src":"new","t":"mc","q":"من عناصر التحضير الجيد للتواصل","o":["جميع البدائل صحيحة","توقع الأسئلة","التنظيم والتدريب","الاستعداد النفسي"],"a":0,"why":"العناصر الثلاثة للتحضير في الوحدة."},{"u":3,"src":"new","t":"mc","q":"طالب يرسل لزميله رسالة يعبّر فيها عن قلقه من الاختبار. غرض التواصل هنا","o":["التخيل","التأثير","الإعلام","التعبير"],"a":3,"why":"التعبير: الإفصاح عن المشاعر والرغبات والاحتياجات الشخصية."},{"u":1,"src":"new","t":"mc","q":"من أساليب تدوين الملاحظات","o":["جميع البدائل صحيحة","طريقة كورنيل","الخريطة الذهنية","طريقة المخطط"],"a":0,"why":"أساليب التدوين في الوحدة: المخطط، الخريطة الذهنية، كورنيل، الجداول، التدوين الرقمي."},{"u":3,"src":"past","t":"mc","q":"التغذية الراجعة","o":["تكشف مدى وصول الرسالة للمستقبل كما أرادها المرسل","تكشف أهمية إرسال رسائل صوتية وليست مكتوبة","تكشف عدد المستقبلين للرسالة","تكشف عمق العلاقات بين المرسل والمستقبل"],"a":0,"why":"التغذية الراجعة هي ما يُظهر به المتلقي استيعابه للرسالة."},{"u":2,"src":"site","t":"mc","q":"شيء يتسبب في فعل أو رد فعل","o":["القبول","الدافع","التطلعات","القيم"],"a":1,"why":"من شريحة المصطلحات المهمة."},{"u":1,"src":"site","t":"mc","q":"مهارة ركوب الدراجة التلقائية تُخزّن في الذاكرة ......","o":["الحسية","الدلالية","الإجرائية","العرضية"],"a":2,"why":"الذاكرة الإجرائية تخزن المعلومات على هيئة عمليات وإجراءات مثل قيادة السيارة وركوب الدراجة."},{"u":2,"src":"past","t":"tf","q":"الشخص الذكي يستطيع أن يجعل عواطفه تعمل من أجله أو لصالحه باستخدامها في ترشيد سلوكه وتفكيره بوسائل تزيد من فرص نجاحه في العمل أو الجامعة أو الحياة بصورة عامة","o":["True","False"],"a":0,"why":"نص الوحدة حرفياً."},{"u":2,"src":"site","t":"mc","q":"تقنية تُستخدم لمساعدة الأشخاص على فهم علاقتهم مع أنفسهم ومع الآخرين بصورة أفضل","o":["نموذج فيتس وبوسنر","نافذة جوهاري","مصفوفة أيزنهاور","نموذج VARK"],"a":1,"why":"نافذة جوهاري (Johari window) نموذج لتنمية الوعي الذاتي."},{"u":1,"src":"site","t":"tf","q":"OneNote و Notion من أمثلة تطبيقات التدوين الرقمي","o":["True","False"],"a":0,"why":"ذكرتهما الوحدة كمثالين على التدوين الرقمي."},{"u":3,"src":"site","t":"tf","q":"التواصل الفعال مجرد كلمات منطوقة","o":["True","False"],"a":1,"why":"خلاصة الوحدة: التواصل الفعال ليس مجرد كلمات، بل منظومة تجمع بين الأداء والمصداقية."},{"u":1,"src":"new","t":"tf","q":"التسويف من العوامل التي تساعد على إدارة الوقت بفعالية","o":["True","False"],"a":1,"why":"التسويف عائق لإدارة الوقت، والوحدة تعرض استراتيجيات للتغلب عليه مثل قاعدة الخمس دقائق."},{"u":3,"src":"past","t":"mc","q":"الأسلوب الأمثل للتعبير عن الرأي في المناقشات هو","o":["التحدث أثناء ضعف الانتباه","الصراخ لجذب الانتباه","تجاهل آراء الآخرين","تقديم الحجج بشكل منطقي وواضح"],"a":3,"why":"من مبادئ التواصل الفعال: الوضوح والاختصار، والثقة والحزم دون عدوانية."},{"u":2,"src":"site","t":"tf","q":"الوعي الذاتي حالة نفسية يكون فيها التركيز على الذات","o":["True","False"],"a":0,"why":"من تعريف الوعي الذاتي في الوحدة."},{"u":1,"src":"site","t":"mc","q":"المرحلة التي تتميز بالتفكير الواعي في خطوات المهارة وارتكاب الكثير من الأخطاء","o":["المرحلة العاطفية","المرحلة الارتباطية","المرحلة المعرفية","المرحلة التلقائية"],"a":2,"why":"المرحلة المعرفية هي مرحلة المبتدئ، وتتطلب تفكيراً واعياً وانتباهاً كاملاً."}],[{"u":2,"src":"site","t":"mc","q":"الوعي الذاتي يساعدك على التخلي عن مجرد القيام بـ ...... والوقوع ضحية للآخرين","o":["التعاطف","التخطيط","الإفصاح عن الذات","رد الفعل"],"a":3,"why":"من فوائد الوعي الذاتي: التخلي عن مجرد رد الفعل والوقوع ضحية للآخرين."},{"u":2,"src":"new","t":"mc","q":"من طرق تنمية الوعي الذاتي","o":["ممارسة اليقظة الذهنية","جميع البدائل صحيحة","تحليل المواقف التي تكررت فيها مشاعر سلبية","كتابة اليوميات الشخصية"],"a":1,"why":"كلها من طرق تنمية الوعي الذاتي في الوحدة."},{"u":2,"src":"site","t":"tf","q":"الشخص ذو الوعي الذاتي الجيد يبالغ في تقدير قدراته","o":["True","False"],"a":1,"why":"يمتلك صورة واقعية عن نفسه، فلا يبالغ في تقدير قدراته ولا يقلل منها."},{"u":2,"src":"site","t":"tf","q":"التعاطف يُظهر مستوى من الثقة والإخلاص يساعد في بناء العلاقات","o":["True","False"],"a":0,"why":"كما في سمات صاحب الذكاء العاطفي العالي."},{"u":2,"src":"site","t":"tf","q":"الوعي الذاتي مهارة يقدرها أصحاب العمل","o":["True","False"],"a":0,"why":"ذكرتها الوحدة ضمن أسباب أهمية الوعي الذاتي."},{"u":1,"src":"past","t":"tf","q":"المعلومات التي تنتبه لها لا تتم معالجتها","o":["True","False"],"a":1,"why":"العكس، فالمعلومات التي تنتبه لها هي التي تنتقل للمعالجة. الانتباه هو البوابة الأولى للذاكرة."},{"u":2,"src":"site","t":"mc","q":"في سياق اليقظة الذهنية، إدراك ما يحدث في اللحظة الراهنة يسمى ......","o":["التطلعات","التعاطف","الوعي","القبول"],"a":2,"why":"هذا تعريف الوعي في سياق اليقظة الذهنية."},{"u":3,"src":"new","t":"mc","q":"من مراحل عملية التواصل","o":["إقرار المتلقي بالفهم","جميع البدائل صحيحة","تحديد المصدر والرسالة","تحديد نوع التواصل"],"a":1,"why":"المراحل الخمس: المصدر والرسالة، نوع التواصل، الإرسال، التلقي، الإقرار بالفهم."},{"u":2,"src":"past","t":"tf","q":"الأفراد الذين يعانون من ضعف في قدرات الذكاء العاطفي يواجهون مشكلات في التكيف والتخطيط لحياتهم، وهذا يعود إلى عدم قدرتهم على فهم انفعالاتهم الذاتية، ومن الممكن أن يؤدي ذلك إلى حالة من الاكتئاب","o":["True","False"],"a":0,"why":"نص شريحة أهمية الذكاء العاطفي."},{"u":1,"src":"site","t":"mc","q":"المعلومات النظرية والمفاهيم المكتسبة عبر التعليم أو الخبرة العملية","o":["القدرة","الذكاء","المهارة","المعرفة"],"a":3,"why":"المعرفة هي فهم الحقائق والمفاهيم النظرية المكتسبة غالباً عبر التعليم أو الخبرة العملية."},{"u":1,"src":"site","t":"tf","q":"المتعلم القرائي/الكتابي يفضل تدوين الملاحظات وكتابة الملخصات","o":["True","False"],"a":0,"why":"نمط القراءة/الكتابة يفضل النصوص المكتوبة وتدوين الملاحظات وكتابة الملخصات."},{"u":3,"src":"new","t":"tf","q":"يميل الناس إلى تصديق الإشارات غير اللفظية أكثر من الكلمات عند حدوث تعارض بينهما","o":["True","False"],"a":0,"why":"من أهمية التواصل غير اللفظي في الوحدة."},{"u":1,"src":"site","t":"tf","q":"كلما زادت المواقف التدريبية زادت كفاءة الذاكرة وقدرتها على الاسترجاع","o":["True","False"],"a":0,"why":"هذه خلاصة شريحة مهارات الذاكرة والتذكر."},{"u":3,"src":"site","t":"mc","q":"الإفصاح عن المشاعر والرغبات والاحتياجات الشخصية للآخرين","o":["التخيل","الإعلام","التعبير","التوقعات الاجتماعية"],"a":2,"why":"هذا تعريف غرض التعبير."},{"u":1,"src":"new","t":"tf","q":"الذاكرة الإجرائية والذاكرة العاطفية من أنواع الذاكرة الضمنية","o":["True","False"],"a":0,"why":"الذاكرة الضمنية تشمل الإجرائية والعاطفية."},{"u":3,"src":"site","t":"mc","q":"مهارات الإنتاج تشمل ......","o":["القراءة والكتابة","التحدث والكتابة","القراءة والاستماع","الاستماع والتحدث"],"a":1,"why":"مهارات الإنتاج نستخدمها لنقل أفكارنا ورسائلنا للآخرين."},{"u":2,"src":"site","t":"tf","q":"التفكير المستمر في أمور مستقبلية لم تحدث بعد يساعد على معايشة اللحظة الحالية","o":["True","False"],"a":1,"why":"العكس: التفكير المستمر في أمور لم تحدث يمنعك من العيش في الحاضر والاستمتاع بما يحدث الآن."},{"u":2,"src":"new","t":"mc","q":"الشخص ذو الذكاء العاطفي العالي ملائم للوظائف التي","o":["تتطلب مهارات تواصل عالية","جميع البدائل صحيحة","تقوم على التفاعل البشري المكثف","تتضمن توجيه الآخرين أو تقديم الرعاية لهم"],"a":1,"why":"كلها من خصائص الوظائف المناسبة لذوي الذكاء العاطفي العالي."},{"u":3,"src":"site","t":"mc","q":"المرحلة التي تعتمد على قدرة المتلقي على الاستماع الفعال","o":["تلقي الرسالة","تحديد المصدر والرسالة","تحديد نوع التواصل","إرسال الرسالة"],"a":0,"why":"هي المرحلة الرابعة، وكلما كانت الرسالة واضحة سهل فهمها."},{"u":2,"src":"site","t":"mc","q":"حسب الإحصائية المذكورة في الوحدة (دراسة هارفارد)، نسبة النجاح الوظيفي التي تعتمد على الذكاء العاطفي","o":["70%","50%","15%","85%"],"a":3,"why":"85% من النجاح الوظيفي يعتمد على الذكاء العاطفي، و15% فقط على المهارات التقنية."},{"u":3,"src":"past","t":"tf","q":"تتكون الرسالة في عملية الاتصال من مجموعة من المعاني التي يضعها القائم بالاتصال في رموز تنتقل إلى المستقبل","o":["True","False"],"a":0,"why":"المرسل يصوغ الرسالة ويحدد محتواها، ثم تنتقل للمتلقي ليفهمها."},{"u":3,"src":"site","t":"tf","q":"ملابسك وهندامك ينقلان رسائل للآخرين حتى دون قصد منك","o":["True","False"],"a":0,"why":"من شريحة التواصل غير اللفظي (رسائل خفية)."},{"u":1,"src":"site","t":"tf","q":"المتعلم البصري يفضل الاستماع إلى المواد الصوتية","o":["True","False"],"a":1,"why":"المواد الصوتية للمتعلم السمعي. البصري يفضل الصور والمخططات."},{"u":1,"src":"site","t":"tf","q":"من أهمية التخطيط وضع جدول زمني يوضح الأنشطة والمواعيد المحددة","o":["True","False"],"a":0,"why":"مع تحديد الأهداف الواضحة والتحكم في المسار وضمان تحقيق النتائج المرجوة."},{"u":1,"src":"site","t":"mc","q":"يتعلمون بشكل أفضل عندما يشاركون جسدياً في عملية التعلم","o":["المتعلمون السمعيون","المتعلمون الحركيون","المتعلمون القرائيون","المتعلمون البصريون"],"a":1,"why":"المشاركة الجسدية هي ما يميز النمط الحركي."},{"u":3,"src":"site","t":"mc","q":"يُستخدم في التواصل اللفظي لتعزيز قوة الرسالة المنطوقة","o":["الجداول","علامات الترقيم","نبرة الصوت ولغة الجسد","الرسوم البيانية"],"a":2,"why":"من شريحة التأثير المباشر في التواصل اللفظي."},{"u":2,"src":"past","t":"mc","q":"تكوين علاقات طيبة مع الآخرين وضبط الانفعالات بما يتناسب ومشاعر الآخرين بطريقة تزيد من فرص النجاح في الحياة","o":["جميع البدائل صحيحة","الذكاء الشخصي","الذكاء العاطفي","الذكاء اللغوي"],"a":2,"why":"فهم العواطف وإدارتها وإدارة العلاقات هو الذكاء العاطفي."},{"u":3,"src":"past","t":"mc","q":"يمكنك تعزيز ثقتك بنفسك عند التعبير عن نفسك أمام الآخرين من خلال","o":["تجنب النظر إلى الجمهور","الصمت وعدم المشاركة","التحضير الجيد والتواصل الواضح","الحديث بشكل عشوائي"],"a":2,"why":"التحضير الجيد هو حجر الزاوية للثقة والنجاح في التواصل."},{"u":1,"src":"site","t":"mc","q":"يتعلمون بشكل أفضل عن طريق الاستماع إلى المحاضرات والمناقشات","o":["المتعلمون السمعيون","المتعلمون الحركيون","المتعلمون القرائيون","المتعلمون البصريون"],"a":0,"why":"النمط السمعي (Auditory) يتعلم أفضل بالاستماع إلى المحاضرات والمناقشات والمواد الصوتية."},{"u":3,"src":"site","t":"mc","q":"أي مما يلي ليس من أدوات التواصل المرئي المذكورة في الوحدة؟","o":["الجداول والمخططات","مخططات المعلومات","الصور والرموز","نبرة الصوت"],"a":3,"why":"نبرة الصوت من أدوات التواصل اللفظي."},{"u":1,"src":"past","t":"mc","q":"ما أهمية الحصول على قسط كافٍ من النوم؟","o":["زيادة مستوى التوتر","زيادة خطر وقوع الحوادث","زيادة خطر الإصابة بالأمراض","تحسين التركيز وترسيخ المعلومات"],"a":3,"why":"النوم من مفاتيح تقوية الذاكرة، فأثناءه يعالج الدماغ المعلومات وينقلها إلى الذاكرة طويلة المدى."},{"u":3,"src":"site","t":"mc","q":"نوع التواصل الذي يعمل كمرجع تنظيمي وقانوني دائم ويساعد في توضيح أي سوء فهم مستقبلي","o":["التواصل غير اللفظي","التواصل المكتوب","التواصل غير الرسمي","التواصل اللفظي"],"a":1,"why":"من شريحة حفظ السجلات في التواصل المكتوب."},{"u":2,"src":"new","t":"mc","q":"من علامات انخفاض الذكاء العاطفي","o":["جميع البدائل صحيحة","لا يستمعون إلى الآخرين","مولعون بالجدل","يصابون بنوبات انفعالية"],"a":0,"why":"كلها من علامات انخفاض الذكاء العاطفي."},{"u":1,"src":"new","t":"tf","q":"القراءة الصامتة أبطأ من القراءة الجهرية وهي الأنسب للنصوص الصعبة","o":["True","False"],"a":1,"why":"القراءة الجهرية هي التي تستغرق وقتاً أطول وتناسب النصوص الصعبة. الصامتة أسرع وأكثر استخداماً أكاديمياً."},{"u":3,"src":"site","t":"mc","q":"الاعتماد على الحقائق الرئيسية والمعلومات المحددة لتعزيز مصداقية الرسالة وفهمها","o":["الملاءمة","الإيجاز","الدقة","الواقعية"],"a":3,"why":"من مبادئ الكتابة القوية."},{"u":2,"src":"past","t":"tf","q":"الذكاء الوجداني (العاطفي) ليس له تأثير على النجاح","o":["True","False"],"a":1,"why":"الوحدة تذكر أن 85% من النجاح الوظيفي يعتمد على الذكاء العاطفي."},{"u":1,"src":"site","t":"mc","q":"من طرق المحافظة على الدافعية حسب الوحدة","o":["مكافأة الذات بعد إكمال المهام","تجنب وضع الأهداف","الدراسة في بيئة مليئة بالمشتتات","تأجيل المهام الصعبة"],"a":0,"why":"الطرق الأربع: إعادة التأكيد على الغرض، تحديد أهداف صغيرة، مكافأة الذات، الدراسة مع الآخرين."},{"u":1,"src":"site","t":"mc","q":"تجميع المعلومات المتشابهة وإنشاء هيكل منطقي للمادة الدراسية يندرج تحت مفتاح ......","o":["الانتباه","النوم","الهيكل والتنظيم","القراءة الجهرية"],"a":2,"why":"العقل يحب النظام، والتنظيم يسهل التشفير والاسترجاع."},{"u":3,"src":"new","t":"mc","q":"من أغراض التواصل المحورية","o":["جميع البدائل صحيحة","الإعلام","التعبير","التأثير"],"a":0,"why":"الأغراض الخمسة: الإعلام، التعبير، التخيل، التأثير، التوقعات الاجتماعية."},{"u":1,"src":"new","t":"mc","q":"من عناصر التنظيم","o":["جميع البدائل صحيحة","تنظيم الوقت","تنظيم الذات","تنظيم المكان"],"a":0,"why":"عناصر التنظيم: تنظيم الذات (العادات)، تنظيم الوقت، تنظيم المكان."}],[{"u":3,"src":"site","t":"tf","q":"الرسائل الواضحة والمفهومة تؤدي إلى نتائج إيجابية وفوائد متبادلة","o":["True","False"],"a":0,"why":"وتعزز جودة الروابط الشخصية والمهنية."},{"u":1,"src":"site","t":"tf","q":"القراءة المسحية هي المثالية لأخذ فكرة عامة قبل المحاضرات","o":["True","False"],"a":1,"why":"قبل المحاضرة تُستخدم القراءة السريعة لأخذ فكرة عامة. المسحية للبحث عن معلومة محددة."},{"u":1,"src":"new","t":"mc","q":"واحدة من الآتي ليست من الذكاءات الثمانية في نظرية جاردنر","o":["الذكاء الموسيقي","الذكاء التفاعلي","الذكاء العاطفي","الذكاء الطبيعي"],"a":2,"why":"ذكاءات جاردنر: اللغوي، المنطقي-الرياضي، المكاني، الجسدي-الحركي، الموسيقي، التفاعلي، الشخصي، الطبيعي."},{"u":3,"src":"past","t":"tf","q":"إذا لم تصل الرسالة للمستقبل على الصورة التي أرادها المرسل، يجب على المرسل أن يحدد مكمن الخلل في العناصر الأربعة (المرسل، الرسالة، الوسيلة، المستقبل)","o":["True","False"],"a":0,"why":"الخلل قد يكون في أي عنصر من عناصر عملية التواصل."},{"u":1,"src":"past","t":"mc","q":"من الجوانب التي تسهم في خفض التوتر لدى الطلبة","o":["إدارة الوقت","العمل لساعات أطول دون راحة","التركيز في أسباب التوتر فقط","تأجيل المهام الصعبة"],"a":0,"why":"إدارة الوقت تحقق التوازن بين الدراسة والحياة وتمنع تراكم المهام."},{"u":3,"src":"past","t":"mc","q":"في عملية الاتصال يُعرّف المستقبل بأنه","o":["جميع البدائل صحيحة","يستقبل الرسالة ويؤول رموزها ويفسرها","الشخص الذي ينقل الرسالة","هو المرسل للرسالة"],"a":1,"why":"مرحلة تلقي الرسالة تعتمد على قدرة المتلقي على الاستماع الفعال وفهم الرسالة واستيعابها."},{"u":2,"src":"site","t":"mc","q":"أي مما يلي ليس من مكونات الذكاء العاطفي؟","o":["إدارة الذات","اليقظة الذهنية","الوعي الذاتي","إدارة العلاقات"],"a":1,"why":"المكونات الأربعة: الوعي الذاتي، إدارة الذات، الوعي الاجتماعي، إدارة العلاقات."},{"u":3,"src":"site","t":"tf","q":"تطوير مهارات التواصل يحدث مرة واحدة ثم ينتهي","o":["True","False"],"a":1,"why":"تطوير المهارات رحلة مستمرة تضيف قيمة لمسيرتك."},{"u":2,"src":"site","t":"tf","q":"أصحاب الذكاء العاطفي المنخفض يظنون دائماً أنهم «على حق»","o":["True","False"],"a":0,"why":"من علامات انخفاض الذكاء العاطفي في الوحدة."},{"u":2,"src":"site","t":"mc","q":"تحليل المواقف التي تكررت فيها مشاعر سلبية يُعد ......","o":["أحد مكونات اليقظة الذهنية","سبباً لاتساع المنطقة العمياء","علامة على انخفاض الذكاء العاطفي","طريقة لتنمية الوعي الذاتي"],"a":3,"why":"من طرق تنمية الوعي الذاتي في الوحدة."},{"u":3,"src":"site","t":"mc","q":"أقوى أداة لتعزيز الرسالة اللفظية حسب الوحدة","o":["السلوك العملي (القدوة الحسنة)","رفع الصوت","تكرار الكلام","المصطلحات المعقدة"],"a":0,"why":"السلوك العملي هو أقوى أداة لتعزيز الرسالة اللفظية وجذب انتباه المستمعين بصدق."},{"u":3,"src":"new","t":"mc","q":"من أدوات التواصل المرئي","o":["مخططات المعلومات","الخرائط الذهنية","مقاطع الفيديو","جميع البدائل صحيحة"],"a":3,"why":"أدوات التواصل المرئي: الخرائط الذهنية، مخططات المعلومات، المخططات الانسيابية، الجداول، مقاطع الفيديو، الصور والرموز."},{"u":3,"src":"site","t":"mc","q":"الغرض الجوهري من التواصل","o":["تجنب بناء العلاقات","نقل المعلومات والرسائل بوضوح واختصار لضمان الفهم التام","إقناع الآخرين في كل الأحوال","إظهار البلاغة اللغوية"],"a":1,"why":"هذا الغرض الجوهري كما في أول شريحة في الوحدة."},{"u":2,"src":"site","t":"mc","q":"مهاراتك في البرمجة التي تظهرها في مشاريع الجامعة مثال على المنطقة ......","o":["المفتوحة","القناع","العمياء","المجهولة"],"a":0,"why":"هذا مثال الوحدة على المنطقة المفتوحة."},{"u":1,"src":"site","t":"tf","q":"قول «لا» في إدارة الوقت يعني الرفض التام لكل الطلبات","o":["True","False"],"a":1,"why":"قول «لا» يعني اختيار ما يستحق وقتك وما يجب تأجيله، وليس الرفض التام."},{"u":3,"src":"new","t":"tf","q":"التواصل غير الرسمي أقل تنظيماً وقد يستخدم كلمات عامية، ويولي اهتماماً أقل للقواعد النحوية الرسمية","o":["True","False"],"a":0,"why":"من مقارنة التواصل الرسمي وغير الرسمي."},{"u":1,"src":"site","t":"mc","q":"حسب مثال المصفوفة في الوحدة، متابعة الشبكات الاجتماعية تقع في خانة ......","o":["فوّضه","افعله","اتركه","جدوله"],"a":2,"why":"متابعة الشبكات الاجتماعية مثال على مهمة غير مهمة وغير عاجلة."},{"u":2,"src":"new","t":"mc","q":"حالة من الإجهاد النفسي أو العاطفي تنتج عادةً عن ظروف قاسية أو تتطلب جهداً كبيراً","o":["الضغط النفسي","الدافع","الإحباط","اليقظة الذهنية"],"a":0,"why":"من المصطلحات المهمة في الوحدة الثانية."},{"u":1,"src":"site","t":"mc","q":"المهارة = المعرفة + الممارسة + ......","o":["الموهبة","التطبيق","الذكاء","الحفظ"],"a":1,"why":"معادلة الوحدة: المهارة = المعرفة + الممارسة + التطبيق."},{"u":2,"src":"new","t":"tf","q":"حسب نافذة جوهاري، كلما كبر القسم المجهول كانت خبرتك بذاتك وبالعالم من حولك قوية","o":["True","False"],"a":1,"why":"كلما كبر القسم المجهول كانت خبرتك بذاتك وبالعالم من حولك ضعيفة."},{"u":3,"src":"site","t":"mc","q":"عدد الأغراض المحورية للتواصل كما تعرضها الوحدة","o":["أربعة","خمسة","ثلاثة","ستة"],"a":1,"why":"الإعلام، التعبير، التخيل، التأثير، التوقعات الاجتماعية."},{"u":2,"src":"past","t":"tf","q":"يرتبط الذكاء العاطفي ارتباطاً وثيقاً بالصحة الذهنية السليمة التي يمكن تحقيقها من خلال تفهم الآخرين والتواصل معهم","o":["True","False"],"a":0,"why":"نص شريحة أهمية الذكاء العاطفي."},{"u":1,"src":"site","t":"tf","q":"من نصائح التدوين أثناء المحاضرة ترك مساحات للإضافة لاحقاً","o":["True","False"],"a":0,"why":"مع الاستماع بتركيز وتحديد النقاط الرئيسية واستخدام الاختصارات والرموز."},{"u":1,"src":"site","t":"mc","q":"من سلبيات التدوين الرقمي المذكورة في الوحدة","o":["صعوبة تعديل الملاحظات","صعوبة البحث في الملاحظات","عدم إمكانية الحفظ السحابي","قد يسبب تشتتاً إذا لم يُستخدم بوعي"],"a":3,"why":"التدوين الرقمي يسهّل البحث والتعديل ويوفر حفظاً سحابياً، لكنه قد يسبب التشتت."},{"u":1,"src":"new","t":"mc","q":"من أنواع الذاكرة الصريحة","o":["الذاكرة الإجرائية والذاكرة الحسية","الذاكرة الحسية والذاكرة العاملة","الذاكرة العرضية والذاكرة الدلالية","الذاكرة الإجرائية والذاكرة العاطفية"],"a":2,"why":"الصريحة: العرضية والدلالية. الضمنية: الإجرائية والعاطفية."},{"u":2,"src":"past","t":"tf","q":"لا توجد علاقة بين الذكاء العاطفي وجودة التواصل مع الآخرين","o":["True","False"],"a":1,"why":"الذكاء العاطفي يرتبط بالتواصل وإدارة العلاقات والعمل الجماعي."},{"u":3,"src":"site","t":"mc","q":"لتكون متواصلاً فعالاً يجب أن ......","o":["تتحدث أكثر مما تستمع","تتفاعل بصدق مع الآخرين وتجعلهم يستمعون لك باهتمام","تستخدم لغة معقدة","تتجنب التفاعل المباشر"],"a":1,"why":"من شريحة الانخراط مع الآخرين."},{"u":1,"src":"site","t":"tf","q":"قراءة الجملة الافتتاحية لكل فقرة تمنح ملخصاً سريعاً لأنها غالباً تحتوي الفكرة الرئيسية","o":["True","False"],"a":0,"why":"من تقنيات مهارة القراءة السريعة."},{"u":1,"src":"site","t":"mc","q":"الترتيب الصحيح لاستراتيجية الدمج الذكي في القراءة","o":["قراءة متأنية ← قراءة جهرية ← مسح سريع","مسح سريع ← قراءة جهرية ← قراءة متأنية","قراءة جهرية ← مسح سريع ← قراءة متأنية","مسح سريع ← قراءة متأنية ← قراءة جهرية"],"a":3,"why":"المسح السريع للأفكار الرئيسية، ثم المتأنية للتعمق والفهم، ثم الجهرية للمراجعة والأمثلة."},{"u":1,"src":"past","t":"tf","q":"الموهبة تعني الحصيلة التراكمية من المعلومات النظرية التي درسها الفرد","o":["True","False"],"a":1,"why":"الحصيلة من المعلومات النظرية هي المعرفة. الموهبة والاستعداد الفطري هما القدرة."},{"u":3,"src":"new","t":"tf","q":"التواصل اللفظي هو استخدام اللغة المنطوقة لنقل رسالة مقصودة من المرسل إلى المتلقي، ويعتمد على مزيج متوازن بين مهارة التحدث وبراعة الاستماع","o":["True","False"],"a":0,"why":"تعريف التواصل اللفظي وارتباطه بالاستماع."},{"u":2,"src":"site","t":"mc","q":"عدد مجالات (مكونات) الذكاء العاطفي","o":["خمسة","ثلاثة","أربعة","ثمانية"],"a":2,"why":"الوعي الذاتي، إدارة الذات، الوعي الاجتماعي، إدارة العلاقات."},{"u":2,"src":"site","t":"mc","q":"فهم المشاعر الشخصية والجوانب المختلفة لنفسك","o":["الوعي الاجتماعي","اليقظة الذهنية","الذكاء العاطفي","الوعي الذاتي"],"a":3,"why":"هذا تعريف الوعي الذاتي في الوحدة، ويتضمن إدراك سماتك الشخصية والجسدية وسلوكك ومشاعرك."},{"u":1,"src":"site","t":"mc","q":"الإغراق بالمعلومات الناتج عن تلقي كمية كبيرة جداً منها مرة واحدة يسمى ......","o":["العبء المعرفي","التصور الذهني","الذاكرة الحسية","الذاكرة العاملة"],"a":0,"why":"العبء المعرفي يجعل معالجة المعلومات بفعالية أصعب."},{"u":2,"src":"site","t":"mc","q":"التحكم في الذات والقدرة على التكيف وإدارة الوقت مصطلحات ترتبط بمكون ......","o":["إدارة الذات","إدارة العلاقات","الوعي الذاتي","الوعي الاجتماعي"],"a":0,"why":"مصطلحات إدارة الذات: التحكم في الذات، التكيف، السلوك الإيجابي، إدارة الوقت، حل المشكلات، العادات الروتينية."},{"u":1,"src":"new","t":"mc","q":"مهنة مرتبطة بالذكاء المنطقي-الرياضي","o":["مؤلف","عازف","مدرب رياضي","محاسب"],"a":3,"why":"الذكاء المنطقي-الرياضي يرتبط بالأرقام والاستدلال، وهذا أساس عمل المحاسب."},{"u":3,"src":"site","t":"mc","q":"الترتيب الصحيح لمراحل عملية التواصل","o":["نوع التواصل ← المصدر والرسالة ← التلقي ← الإرسال ← الإقرار بالفهم","الإرسال ← المصدر والرسالة ← نوع التواصل ← الإقرار بالفهم ← التلقي","المصدر والرسالة ← نوع التواصل ← الإرسال ← التلقي ← الإقرار بالفهم","المصدر والرسالة ← الإرسال ← نوع التواصل ← الإقرار بالفهم ← التلقي"],"a":2,"why":"تحديد المصدر والرسالة، ثم نوع التواصل، ثم الإرسال، ثم التلقي، ثم إقرار المتلقي بالفهم."},{"u":2,"src":"site","t":"tf","q":"الوعي الذاتي يقتصر على معرفة نقاط القوة دون نقاط الضعف","o":["True","False"],"a":1,"why":"الوعي الذاتي يتضمن معرفتك بنقاط الضعف والقوة معاً."},{"u":2,"src":"past","t":"tf","q":"التعاطف يعني الوعي بمشاعر الآخرين وحاجاتهم واهتماماتهم","o":["True","False"],"a":0,"why":"التعاطف هو القدرة على فهم مشاعر الآخرين ومشاركتهم فيها."},{"u":3,"src":"site","t":"tf","q":"مهارات التواصل القوية من أهم المعايير التي يبحث عنها أصحاب العمل","o":["True","False"],"a":0,"why":"وهذا يمنحك أفضلية عند التقدم للوظائف والمقابلات."}],[{"u":1,"src":"new","t":"tf","q":"المهارات هي التطبيق العملي للمعرفة، وتتطور بالتدريب والممارسة المستمرة، ومن خصائصها أنها قابلة للقياس والتقييم من خلال الأداء العملي","o":["True","False"],"a":0,"why":"هذا تعريف المهارة وخصائصها كما في الوحدة."},{"u":3,"src":"site","t":"tf","q":"غرض التأثير يعني تبادل الحقائق والمعلومات بدقة","o":["True","False"],"a":1,"why":"تبادل الحقائق هو الإعلام. التأثير هو إقناع الآخرين وتوجيه آرائهم."},{"u":2,"src":"past","t":"mc","q":"المنطقة العمياء حسب نافذة جوهاري تحتوي على","o":["معلومات لا أعرفها عن نفسي والناس يعرفونها","معلومات لا أعرفها عن نفسي ولا يعرفها الآخرون","معلومات أعرفها عن نفسي والآخرون لا يعرفونها","معلومات أعرفها عن نفسي ويعرفها الآخرون"],"a":0,"why":"العمياء: الآخرون يعرفون وأنت لا تعرف."},{"u":1,"src":"site","t":"tf","q":"يبحث أصحاب العمل عن أفراد يمتلكون مزيجاً متوازناً من المعرفة والمهارات والقدرات","o":["True","False"],"a":0,"why":"هذا نص فائدة «تحسين فرص التوظيف» في شريحة أهمية التطوير الشامل."},{"u":2,"src":"site","t":"mc","q":"شخص منطوٍ على نفسه لا يعرف سبب ذلك ولا يعرفه من حوله، فقرر اللجوء لأخصائي نفسي. هذا مثال على المنطقة ......","o":["العمياء","المفتوحة","القناع","المجهولة"],"a":3,"why":"هذا مثال الوحدة على المنطقة المجهولة."},{"u":1,"src":"site","t":"mc","q":"شخص يقود الدراجة براحة دون أن يفكر في توازنه أو مقدار الضغط على الفرامل، هو في المرحلة ......","o":["الارتباطية","المعرفية","التلقائية","التمهيدية"],"a":2,"why":"هذا مثال الوحدة على المرحلة التلقائية."},{"u":2,"src":"site","t":"tf","q":"صاحب الذكاء العاطفي العالي يستخدم حديث النفس الإيجابي","o":["True","False"],"a":0,"why":"يجري حديثاً إيجابياً مع ذاته ويتجنب الحديث السلبي مع النفس."},{"u":3,"src":"new","t":"mc","q":"من مبادئ الكتابة القوية","o":["الإيجاز","الواقعية","جميع البدائل صحيحة","الدقة"],"a":2,"why":"المبادئ الأربعة: الدقة، الملاءمة، الإيجاز، الواقعية."},{"u":3,"src":"new","t":"tf","q":"التحدث الفعال يتعلق فقط باختيار الكلمات المناسبة دون الاهتمام بنبرة الصوت والحماس","o":["True","False"],"a":1,"why":"التحدث الفعال يجمع بين «ماذا تقول؟» (الكلمات) و«كيف تقول؟» (نبرة الصوت ومستواه والحماس)."},{"u":2,"src":"site","t":"tf","q":"المنطقة المجهولة هي ما لا تعرفه أنت ولا يعرفه الآخرون","o":["True","False"],"a":0,"why":"وتمثل أبعاد الشخصية التي لم تُكتشف بعد، وتسمى منطقة إمكانياتك غير المكتشفة."},{"u":1,"src":"new","t":"mc","q":"من مفاتيح تقوية الذاكرة","o":["الانتباه","جميع البدائل صحيحة","الهيكل والتنظيم","النوم"],"a":1,"why":"مفاتيح تقوية الذاكرة: الانتباه، التنظيم، التصور، السياق والربط، النوم."},{"u":2,"src":"site","t":"tf","q":"امتلاك استراتيجيات تأقلم سيئة من علامات الذكاء العاطفي المرتفع","o":["True","False"],"a":1,"why":"هذه من علامات انخفاض الذكاء العاطفي."},{"u":3,"src":"past","t":"mc","q":"تتنوع وسائل الاتصال في عملية التواصل، فقد تكون الوسيلة","o":["سمعية بصرية (كالتلفاز)","بصرية (كاللوحات الإعلانية والملصقات)","سمعية (كالإذاعة)","جميع البدائل صحيحة"],"a":3,"why":"اختيار الوسيلة جزء من مرحلة تحديد نوع التواصل، والتواصل المرئي يُطبق في الإعلانات."},{"u":1,"src":"site","t":"mc","q":"حسب أمثلة الوحدة، عازف البيانو الذي يعزف ببراعة مثال على ......","o":["القدرة","التحفيز","المعرفة","التنظيم"],"a":0,"why":"الوحدة تذكر عازف البيانو والرياضي الذي يؤدي حركة بهلوانية والفنان الذي يرسم لوحة كأمثلة على القدرات."},{"u":3,"src":"site","t":"mc","q":"إيماءة بالرأس بعد سماع الرسالة مثال على ......","o":["تغذية راجعة غير لفظية","تواصل مرئي","إرسال الرسالة","تحديد نوع التواصل"],"a":0,"why":"هذا مثال الوحدة على إقرار المتلقي بالفهم بشكل غير لفظي."},{"u":1,"src":"site","t":"mc","q":"مهنة مرتبطة بالذكاء اللغوي","o":["مدرب رياضي","محاسب","مصور","مؤلف"],"a":3,"why":"الذكاء اللغوي هو القدرة على استخدام الكلمات بفعالية في التحدث والكتابة، وهذا جوهر عمل المؤلف."},{"u":3,"src":"site","t":"tf","q":"التحضير يقتصر على العروض التقديمية ولا يشمل المحادثات المهمة","o":["True","False"],"a":1,"why":"التحضير يشمل أيضاً المحادثات المهمة مع الأصدقاء والعائلة."},{"u":1,"src":"site","t":"tf","q":"الذاكرة العاطفية تخزن مشاعر مرتبطة بتجارب قوية","o":["True","False"],"a":0,"why":"هذا تعريف الذاكرة العاطفية، وهي من الذاكرة الضمنية."},{"u":1,"src":"site","t":"tf","q":"القدرات أسهل في القياس من المعرفة والمهارات","o":["True","False"],"a":1,"why":"العكس: القدرات غالباً صعبة القياس لأنها استعدادات داخلية وليست تطبيقاً عملياً أو معلومات."},{"u":1,"src":"past","t":"mc","q":"العلاقة بين المعرفة والمهارة تعني","o":["قدرة الإنسان على استخدام المعلومات وتطبيقها بنجاح","قدرة الإنسان على تعلم العديد من المعلومات وفهمها","القدرة على إدارة الوقت","قدرة الإنسان على تجميع أكبر قدر ممكن من المهارات"],"a":0,"why":"المهارة هي التطبيق العملي للمعرفة (المهارة = المعرفة + الممارسة + التطبيق)."},{"u":3,"src":"site","t":"tf","q":"الوسائل المرئية تعزز استيعاب الرسالة وتجذب انتباه الجمهور","o":["True","False"],"a":0,"why":"كما في عنوان شريحة التواصل المرئي."},{"u":3,"src":"site","t":"mc","q":"طالب يقدم عرضاً ليقنع زملاءه باختيار فكرة مشروعه. غرض التواصل هنا ......","o":["التعبير","الإعلام","التأثير","التوقعات الاجتماعية"],"a":2,"why":"إقناع الآخرين وتوجيه آرائهم نحو هدف محدد هو التأثير."},{"u":2,"src":"past","t":"tf","q":"الوعي بالذات أساس الثقة بالنفس","o":["True","False"],"a":0,"why":"من فوائد الوعي الذاتي تعزيز الثقة بالنفس والشعور بالثقة المتوازنة."},{"u":1,"src":"site","t":"mc","q":"في مصفوفة أيزنهاور، المهمة المهمة وغير العاجلة ......","o":["فوّضها لغيرك","خطط لها وجدولها","نفذها فوراً","اتركها"],"a":1,"why":"مهم وعاجل: افعله. مهم وغير عاجل: جدوله. غير مهم وعاجل: فوّضه. غير مهم وغير عاجل: اتركه."},{"u":1,"src":"new","t":"mc","q":"واحدة من الآتي ليست من أنماط التعلم في نموذج VARK","o":["النمط المنطقي","النمط الحركي","النمط السمعي","النمط البصري"],"a":0,"why":"أنماط VARK: البصري، السمعي، القراءة/الكتابة، الحركي."},{"u":2,"src":"site","t":"tf","q":"الوعي الذاتي يتيح لك التحكم في أنماط تفكيرك وتغييرها إلى الإيجابية","o":["True","False"],"a":0,"why":"من أسباب أهمية الوعي الذاتي في الوحدة."},{"u":1,"src":"site","t":"mc","q":"صاحب نظرية الذكاءات المتعددة","o":["بوسنر","فيتس","أيزنهاور","هوارد جاردنر"],"a":3,"why":"وضع الدكتور هوارد جاردنر النظرية عام 1983."},{"u":3,"src":"site","t":"mc","q":"التركيز الكامل مع المتحدث لفهم الرسالة بعمق قبل الرد أو التعقيب","o":["التوقيت الذكي","الاستماع الفعال","إشراك المستمعين","فهم الجمهور"],"a":1,"why":"من مبادئ التواصل الفعال."},{"u":3,"src":"new","t":"tf","q":"تنشأ معظم النزاعات في العلاقات بسبب كثرة التواصل بين الأطراف","o":["True","False"],"a":1,"why":"تنشأ معظم النزاعات بسبب ضعف التواصل أو سوء الفهم الناتج عن رسائل غير واضحة."},{"u":2,"src":"site","t":"tf","q":"من فوائد اليقظة الذهنية المرتبطة بالوعي الاجتماعي زيادة التفاعل الاجتماعي","o":["True","False"],"a":0,"why":"عن طريق التفاعل بإيجابية مع اللحظة الحالية."},{"u":1,"src":"past","t":"mc","q":"من أقسام الذاكرة، مسؤولة عن استقبال المثيرات الحسية (بصر، سمع، شم، لمس، ذوق)","o":["الذاكرة التخيلية","الذاكرة قصيرة المدى","الذاكرة الحسية","الذاكرة بعيدة المدى"],"a":2,"why":"الذاكرة الحسية تلتقط المعلومات من الحواس لأجزاء من الثانية."},{"u":2,"src":"new","t":"mc","q":"يمكن تقسيم مجالات الذكاء العاطفي إلى أربعة مجالات هي","o":["الذكاء العقلي، الذكاء العاطفي، الوعي، التعاطف","الوعي الذاتي، تنظيم الذات، الدافعية، التعاطف","الوعي الذاتي، إدارة الذات، الوعي الاجتماعي، إدارة العلاقات","الوعي الذاتي، اليقظة الذهنية، القبول، الوعي"],"a":2,"why":"هذه المجالات الأربعة في المنهج الجديد. (تصنيف جولمان بخمسة مكونات كان في المنهج القديم.)"},{"u":2,"src":"past","t":"tf","q":"الذكاء العاطفي يعني قدرة الشخص على حل المشكلات لدى الآخرين","o":["True","False"],"a":1,"why":"الذكاء العاطفي هو قدرة الفرد على فهم عواطفه واستخدامها وإدارتها بطرق إيجابية."},{"u":3,"src":"site","t":"mc","q":"تلبية المعايير والبروتوكولات المتعارف عليها في التفاعلات المجتمعية","o":["التأثير","التخيل","الإعلام","التوقعات الاجتماعية"],"a":3,"why":"هذا تعريف غرض التوقعات الاجتماعية."},{"u":2,"src":"site","t":"tf","q":"الشخص ذو الوعي الذاتي الجيد لا يدرك تأثير سلوكه على الآخرين","o":["True","False"],"a":1,"why":"من صفاته أنه يدرك تأثير سلوكه على الآخرين."},{"u":3,"src":"past","t":"mc","q":"ينحصر دور المرسل في عملية الاتصال في أنه","o":["تصدر منه الرسالة التي تحمل معنى محدداً","يهدف إلى وصول المستقبل للاستجابة التي يحددها","جميع البدائل صحيحة","نقطة الانطلاق في عملية الاتصال"],"a":2,"why":"المرحلة الأولى في التواصل تبدأ من المرسل: تحديد المصدر وصياغة الرسالة وتحديد المحتوى."},{"u":1,"src":"site","t":"mc","q":"ترتيب بيئة الدراسة والعمل يندرج تحت ......","o":["تنظيم الوقت","تنظيم المكان","التحفيز","تنظيم الذات"],"a":1,"why":"تنظيم المكان: ترتيب بيئة الدراسة والعمل."},{"u":2,"src":"new","t":"mc","q":"من مكونات اليقظة الذهنية","o":["التطلعات","القبول","القيادة","الدافع"],"a":1,"why":"مكونات اليقظة الذهنية: الوعي، القبول، اللحظة الحالية."},{"u":3,"src":"site","t":"tf","q":"اختيار الشخص المناسب وصياغة رسالة واضحة ومختصرة يكون في مرحلة تحديد المصدر والرسالة","o":["True","False"],"a":0,"why":"مع تحديد المحتوى المراد إيصاله بدقة."},{"u":2,"src":"site","t":"mc","q":"قدرة الفرد على التركيز والانتباه الكامل للحظة الحالية مع الوعي بالمشاعر والأفكار دون إصدار أحكام","o":["إدارة الذات","التعاطف","الوعي الاجتماعي","اليقظة الذهنية"],"a":3,"why":"هذا تعريف اليقظة الذهنية (Mindfulness) في الوحدة."}],[{"u":2,"src":"new","t":"tf","q":"من أسباب أهمية الوعي الذاتي أنه يمنحك القدرة على «معايشة اللحظة الحالية»","o":["True","False"],"a":0,"why":"من شريحة: لماذا الوعي الذاتي مهم؟"},{"u":2,"src":"site","t":"mc","q":"انخفاض الذكاء العاطفي قد يسبب ضغطاً نفسياً يؤدي إلى آثار بدنية مثل ......","o":["تحسن جودة النوم","ارتفاع ضغط الدم وانخفاض مستوى المناعة","زيادة التركيز","قوة الذاكرة"],"a":1,"why":"من جدول جوانب الحياة: الصحة البدنية."},{"u":1,"src":"past","t":"tf","q":"إن حدث أي مشتت للانتباه خلال معالجة المعلومات فإنه يُضعف احتمالية معالجتها ويُضعف احتمالية تذكرها لاحقاً","o":["True","False"],"a":0,"why":"الانتباه هو البوابة الأولى للذاكرة، والتركيز العميق هو ما ينقل المعلومة إلى الذاكرة طويلة المدى."},{"u":3,"src":"site","t":"tf","q":"التواصل هو الحجر الأساس لبناء الروابط الإنسانية، وبدونه تصبح الحياة شبه مستحيلة","o":["True","False"],"a":0,"why":"من شريحة أهمية العلاقات."},{"u":1,"src":"site","t":"tf","q":"تدوين الملاحظات الفعال يعني كتابة كل المعلومات المقدمة","o":["True","False"],"a":1,"why":"التدوين الفعال يتجاوز كتابة كل شيء، وهدفه التقاط المعلومات ذات الصلة."},{"u":3,"src":"site","t":"tf","q":"التواصل مهارة مكتسبة تتطور بالممارسة اليومية","o":["True","False"],"a":0,"why":"كما في شريحة مهارات الإنتاج والاستيعاب."},{"u":2,"src":"site","t":"mc","q":"من صفات صاحب الذكاء العاطفي المرتفع","o":["عنيد وبطيء الاستجابة","انتقادي وصعب الإرضاء","مبادر وملتزم ويُعتمد عليه","سهل التشتيت ومتهور"],"a":2,"why":"الخيارات الأخرى من صفات الذكاء العاطفي المنخفض."},{"u":2,"src":"past","t":"mc","q":"الثقة بالنفس تعني","o":["المعرفة الجيدة بالمهارات","حاجة أساسية للحياة تنمو ولا تُكتسب","الشعور أو الثقة في قدراتك وصفاتك وحكمك","القدرة على اكتساب احترام الآخرين"],"a":2,"why":"هذا تعريف الثقة بالنفس في مصطلحات الوحدة الثانية."},{"u":3,"src":"site","t":"tf","q":"يُفضل استخدام الوسائل المرئية لمجرد الزينة","o":["True","False"],"a":1,"why":"مبدأ «الهدف قبل الزينة»: لكل عنصر بصري هدف واضح في دعم الرسالة."},{"u":1,"src":"site","t":"mc","q":"القدرة على التأمل الذاتي وفهم الذات","o":["الذكاء التفاعلي","الذكاء الطبيعي","الذكاء اللغوي","الذكاء الشخصي"],"a":3,"why":"الذكاء الشخصي: التأمل الذاتي وفهم الذات. أما التفاعلي فهو فهم الآخرين."},{"u":3,"src":"new","t":"mc","q":"واحدة من الآتي ليست من أغراض التواصل الخمسة","o":["الإعلام","التخيل","التوقعات الاجتماعية","التنافس"],"a":3,"why":"الأغراض الخمسة: الإعلام، التعبير، التخيل، التأثير، التوقعات الاجتماعية."},{"u":1,"src":"site","t":"tf","q":"في مصفوفة أيزنهاور تُفوَّض المهام غير المهمة وغير العاجلة","o":["True","False"],"a":1,"why":"غير المهمة وغير العاجلة تُترك. التفويض للمهام العاجلة غير المهمة."},{"u":3,"src":"past","t":"tf","q":"من المفيد الطلب من الآخرين مشاركة أفكارهم في أثناء الاجتماعات","o":["True","False"],"a":0,"why":"مبدأ إشراك المستمعين: فتح باب النقاش وتوفير فرص للتحدث."},{"u":3,"src":"past","t":"mc","q":"من عناصر الاتصال الفعال","o":["الخدمات التي سيتم تناقلها","المرسل والمستقبل والتغذية الراجعة","نوعية الأشخاص المتراسلين","الوسيلة الرقمية أو الذهنية"],"a":1,"why":"مخطط عملية التواصل في الوحدة: المرسل، الرسالة، المستقبل، التغذية الراجعة."},{"u":1,"src":"site","t":"tf","q":"الذاكرة قصيرة المدى تحفظ المعلومات لعدة أيام","o":["True","False"],"a":1,"why":"الذاكرة قصيرة المدى تحفظ كميات صغيرة مؤقتاً (20 إلى 30 ثانية). التخزين لأيام أو مدى الحياة للذاكرة طويلة المدى."},{"u":1,"src":"site","t":"tf","q":"الذكاء التفاعلي هو القدرة على التفاعل الاجتماعي وفهم الآخرين","o":["True","False"],"a":0,"why":"هذا تعريف الذكاء التفاعلي في الوحدة."},{"u":3,"src":"new","t":"mc","q":"قول المتلقي «شكراً لك» بعد استلام الرسالة مثال على","o":["مرحلة إرسال الرسالة","تغذية راجعة لفظية","تغذية راجعة غير لفظية","تواصل مرئي"],"a":1,"why":"إقرار المتلقي بالفهم قد يكون لفظياً مثل «شكراً لك» أو غير لفظي مثل إيماءة بالرأس."},{"u":2,"src":"site","t":"tf","q":"إدارة العلاقات تساعد على التعامل مع العلاقات الضعيفة أو المواقف السلبية مبكراً لمنع انهيارها","o":["True","False"],"a":0,"why":"كما في شريحة أثر إدارة العلاقات في العمل."},{"u":3,"src":"site","t":"mc","q":"مبدأ «الهدف قبل الزينة» في التواصل المرئي يعني ......","o":["أن يكون لكل عنصر بصري هدف واضح في دعم الرسالة","أن تتجنب الوسائل المرئية تماماً","أن تكثر من الصور قدر الإمكان","أن تستخدم الألوان الزاهية دائماً"],"a":0,"why":"من شريحة البساطة ومراعاة الجمهور."},{"u":3,"src":"site","t":"mc","q":"القدرة على إيصال رسائل مؤثرة تزيد من ......","o":["عدد النزاعات","احترام الآخرين وثقتهم في قدراتك وكلماتك","الحاجة إلى التكرار","طول المحادثات"],"a":1,"why":"من شريحة بناء الاحترام والثقة."},{"u":1,"src":"new","t":"mc","q":"مهنة مرتبطة بالذكاء المكاني","o":["مصمم جرافيك","مذيع","محامٍ","محاسب"],"a":0,"why":"الذكاء المكاني هو التخيل والتصور البصري والفراغي، وهو أساس عمل المصمم."},{"u":2,"src":"site","t":"mc","q":"يتضمن الوعي الذاتي إدراك ......","o":["آراء الآخرين عنك فقط","نتائج اختباراتك فقط","سماتك الشخصية والجسدية وسلوكك ومشاعرك","القوانين والأنظمة"],"a":2,"why":"من تعريف الوعي الذاتي في الوحدة."},{"u":2,"src":"past","t":"tf","q":"حسب نافذة جوهاري، في منطقة الأسرار (القناع) يخفي الفرد ميوله ورغباته ومخاوفه عن الآخرين","o":["True","False"],"a":0,"why":"منطقة القناع تحوي معلومات يتعمد الفرد إخفاءها."},{"u":3,"src":"site","t":"tf","q":"الحزم في التواصل يعني التحدث بعدوانية لفرض الرأي","o":["True","False"],"a":1,"why":"الحزم يكون بثقة واعتزاز دون عدوانية."},{"u":1,"src":"site","t":"mc","q":"من مميزات القراءة الجهرية","o":["الأنسب للمكتبات","مثالية لكميات القراءة الكبيرة","تدمج السمع والبصر لتثبيت المعلومات","أسرع أنواع القراءة"],"a":2,"why":"الجهرية تدمج السمع والبصر وتناسب النصوص الصعبة، لكنها تستغرق وقتاً أطول."},{"u":1,"src":"past","t":"tf","q":"ترتبط مهنة عالم النفس بالذكاء الذاتي (الشخصي)","o":["True","False"],"a":0,"why":"الذكاء الشخصي هو القدرة على التأمل الذاتي وفهم الذات، وهو جوهر عمل عالم النفس."},{"u":2,"src":"site","t":"mc","q":"«غاضب، فظ، عدواني، حاد الطباع» صفات ترتبط بـ ......","o":["الوعي الذاتي الجيد","الذكاء العاطفي المرتفع","اليقظة الذهنية","الذكاء العاطفي المنخفض"],"a":3,"why":"من جدول صفات الذكاء العاطفي المنخفض."},{"u":2,"src":"past","t":"tf","q":"حسب نافذة جوهاري، المنطقة المكشوفة هي منطقة غير معروفة من الجميع وتمثل جميع أبعاد شخصيتنا التي لم تُكتشف حتى الآن","o":["True","False"],"a":1,"why":"هذا وصف المنطقة المجهولة. المكشوفة يعرفها الفرد ويعرفها الآخرون."},{"u":3,"src":"new","t":"tf","q":"بعد جائحة كوفيد-19 أصبح التواصل عبر الإنترنت أقل أهمية لأنه لا يعوّض التواصل الجسدي","o":["True","False"],"a":1,"why":"أصبح التواصل عبر الإنترنت مهارة حيوية تتطلب الوضوح والاختصار لتعويض غياب التواصل الجسدي."},{"u":1,"src":"new","t":"mc","q":"من مصادر المعرفة","o":["التعليم","الخبرة العملية","جميع البدائل صحيحة","الكتب ووسائل الإعلام"],"a":2,"why":"مصادر المعرفة: التعليم، الخبرة العملية، الكتب، ووسائل الإعلام."},{"u":1,"src":"new","t":"mc","q":"قراءة الجملة الافتتاحية لكل فقرة والبحث عن الكلمات المفتاحية من تقنيات","o":["القراءة السريعة","القراءة الترفيهية","القراءة الجهرية","القراءة النقدية"],"a":0,"why":"من تقنيات مهارة القراءة السريعة: الجملة الافتتاحية غالباً تحتوي الفكرة الرئيسية."},{"u":2,"src":"site","t":"mc","q":"إشراك أشخاص آخرين واكتشاف كيف يرونك من طرق تنمية الوعي الذاتي، ويسمى ......","o":["كتابة اليوميات","التعاون","تحليل المواقف","اليقظة الذهنية"],"a":1,"why":"التعاون: إشراك أشخاص آخرين في العملية واكتشاف كيفية رؤيتهم لك."},{"u":3,"src":"site","t":"mc","q":"استخدام اللغة المنطوقة لنقل رسالة مقصودة من المرسل إلى المتلقي بفعالية ووضوح","o":["التواصل المرئي","التواصل غير اللفظي","التواصل المكتوب","التواصل اللفظي"],"a":3,"why":"هذا تعريف التواصل اللفظي في الوحدة."},{"u":1,"src":"site","t":"mc","q":"توصف القراءة الأكاديمية في الوحدة بأنها قراءة ......","o":["منهجية","بحثية","تقييمية","شخصية"],"a":0,"why":"السريعة عامة، المسحية بحثية، المتأنية تحليلية، الأكاديمية منهجية، النقدية تقييمية، الترفيهية شخصية."},{"u":1,"src":"site","t":"tf","q":"التنظيم مرتبط بإدارة الوقت فقط ولا علاقة له بالتحفيز","o":["True","False"],"a":1,"why":"الوحدة تذكر أن التنظيم يعزز التحفيز من خلال توضيح المسار نحو الأهداف، ويرتبط بإدارة الوقت والتخطيط."},{"u":3,"src":"site","t":"mc","q":"الانتباه لإشارات الآخرين ومحاولة التناغم معها لبناء الألفة والثقة","o":["المحاكاة الواعية","الوضوح","القصد","الوعي الذاتي"],"a":0,"why":"من عناصر تحويل لغة الجسد إلى أداة تواصل قوية."},{"u":2,"src":"site","t":"tf","q":"الذكاء العاطفي يساعد على التحكم في الإحباطات والاندفاعات وتنظيم الحالات المزاجية","o":["True","False"],"a":0,"why":"من شريحة أهمية الذكاء العاطفي."},{"u":2,"src":"site","t":"mc","q":"مخاوفك من الفشل التي لا تشاركها مع أحد مثال على المنطقة ......","o":["العمياء","القناع","المجهولة","المفتوحة"],"a":1,"why":"هذا مثال الوحدة على منطقة القناع."},{"u":2,"src":"new","t":"tf","q":"اليقظة الذهنية هي التركيز والانتباه الكامل للحظة الحالية مع الوعي بالمشاعر والأفكار، مع إصدار الأحكام عليها بسرعة","o":["True","False"],"a":1,"why":"اليقظة الذهنية تكون دون إصدار أحكام أو ردود فعل اندفاعية."},{"u":1,"src":"site","t":"mc","q":"الحرف K في نموذج VARK يشير إلى النمط ......","o":["القرائي","المعرفي","البصري","الحركي"],"a":3,"why":"VARK: Visual بصري، Auditory سمعي، Read/Write قراءة/كتابة، Kinesthetic حركي."}],[{"u":3,"src":"site","t":"mc","q":"مهارات الاستيعاب تشمل ......","o":["القراءة والاستماع","التحدث والكتابة","الكتابة والاستماع","التحدث والقراءة"],"a":0,"why":"مهارات الاستيعاب نستخدمها لتلقي المعلومات من الآخرين وفهمها."},{"u":1,"src":"site","t":"mc","q":"قيادة السيارة مثال على ......","o":["الذاكرة الدلالية","المعرفة","القدرة","المهارة"],"a":3,"why":"قيادة السيارة مهارة لأنها تتطلب تدريباً عملياً وممارسة مستمرة."},{"u":3,"src":"site","t":"tf","q":"نطاق التواصل اللفظي يمتد من المحادثات اليومية البسيطة إلى الخطابات الجماهيرية الكبرى","o":["True","False"],"a":0,"why":"من شريحة التواصل اللفظي."},{"u":3,"src":"past","t":"tf","q":"في عملية الاتصال على المرسل أن يضع المستقبل في حسابه دائماً للتأكد من سلامة فهمه للمقصود","o":["True","False"],"a":0,"why":"من مبادئ التواصل الفعال فهم الجمهور، ومن خطوات الإرسال التأكد من وصول الرسالة."},{"u":3,"src":"site","t":"mc","q":"استخدام التواصل في الإبداع والابتكار وتصور الحلول المستقبلية","o":["التعبير","الإعلام","التخيل","التأثير"],"a":2,"why":"هذا تعريف غرض التخيل."},{"u":2,"src":"site","t":"mc","q":"تحمّل الفرد المسؤولية عن سلوكه ورفاهيته هو تعريف ......","o":["الوعي الاجتماعي","إدارة العلاقات","التعاطف","إدارة الذات"],"a":3,"why":"من شريحة المصطلحات المهمة."},{"u":1,"src":"site","t":"mc","q":"قدّم فيتس وبوسنر نموذجهما لمراحل التعلم الحركي عام ......","o":["1967","1983","1990","1975"],"a":0,"why":"نموذج فيتس وبوسنر (1967). أما 1983 فهو عام نظرية الذكاءات المتعددة لجاردنر."},{"u":3,"src":"site","t":"mc","q":"عدم الاستماع الفعال يؤدي إلى ......","o":["زيادة الثقة بالنفس","النزاعات وسوء الفهم وفشل تنفيذ المهام","سرعة إنجاز المهام","تحسين العلاقات"],"a":1,"why":"من شريحة الاستماع."},{"u":2,"src":"new","t":"mc","q":"تزداد مساحة المنطقة المفتوحة في نافذة جوهاري من خلال","o":["الإفصاح عن الذات","تلقي التغذية الراجعة","الاكتشاف المشترك","جميع البدائل صحيحة"],"a":3,"why":"هذه الطرق الثلاث المذكورة لزيادة المنطقة المفتوحة."},{"u":2,"src":"past","t":"tf","q":"حسب نافذة جوهاري، عدم الانفتاح على الآخرين (الانغلاق الذاتي) يخفض المنطقة المخفية","o":["True","False"],"a":1,"why":"الانفتاح على الآخرين وعدم الانغلاق الذاتي هو الذي يخفض المنطقة المخفية."},{"u":1,"src":"past","t":"tf","q":"القدرة هي تعلم الفرد المفاهيم والمبادئ والمعلومات المتعلقة بموضوع معين من خلال الكتب ووسائل الإعلام","o":["True","False"],"a":1,"why":"هذا وصف المعرفة، فمصادرها التعليم والكتب ووسائل الإعلام. القدرة استعداد فطري."},{"u":2,"src":"site","t":"tf","q":"الشخص ذو الوعي الذاتي الجيد يتعرف على مشاعره ويفهم أسبابها وليس مجرد الإحساس بها","o":["True","False"],"a":0,"why":"هذه أول صفة للوعي الذاتي الجيد في الوحدة."},{"u":2,"src":"site","t":"tf","q":"الشخص ذو الوعي الذاتي غير المتطور يهتم بالتفاصيل ويتأكد من جودة عمله","o":["True","False"],"a":1,"why":"العكس: يميل إلى عدم الاهتمام بالتفاصيل والتأكد من جودة عمله."},{"u":2,"src":"past","t":"tf","q":"لزيادة مساحة المنطقة المكشوفة: تبادل الخبرات يزيد المنطقة المكشوفة ويخفف المنطقة المجهولة","o":["True","False"],"a":0,"why":"من إرشادات زيادة المنطقة المكشوفة في نافذة جوهاري."},{"u":1,"src":"site","t":"mc","q":"تحويل «كتابة بحث» إلى: اختيار الموضوع ثم البحث ثم الكتابة، مثال على ......","o":["القراءة المسحية","التفويض الذكي","قول «لا»","تجزئة المهام الكبيرة"],"a":3,"why":"تقسيم المهمة إلى خطوات صغيرة يقلل الشعور بالإرهاق ويسهّل البدء."},{"u":3,"src":"site","t":"mc","q":"جعل تواصلك غير اللفظي مقصوداً لخدمة رسالتك وتعزيز كلماتك","o":["الوعي الذاتي","القصد","الوضوح","المحاكاة الواعية"],"a":1,"why":"من عناصر تحويل لغة الجسد إلى أداة تواصل قوية."},{"u":1,"src":"new","t":"mc","q":"في مصفوفة أيزنهاور، المهمة العاجلة وغير المهمة","o":["اتركها","نفّذها فوراً","خطط لها وجدولها","فوّضها لغيرك"],"a":3,"why":"عاجل وغير مهم: فوّضه."},{"u":1,"src":"past","t":"mc","q":"الفائدة من تكوين مجموعات دراسية هي","o":["الاعتماد فقط على المذاكرة الفردية","تقليل التفاعل الاجتماعي","تعزيز التعاون وتبادل الأدوار","تقليل الجهد الأكاديمي"],"a":2,"why":"الدراسة مع الآخرين في مجموعات دراسية تخلق بيئة محفزة، وهي من طرق المحافظة على الدافعية."},{"u":2,"src":"site","t":"tf","q":"ممارسة اليقظة الذهنية من طرق تنمية الوعي الذاتي","o":["True","False"],"a":0,"why":"ممارسة اليقظة الذهنية (Mindfulness) والتركيز على اللحظة الحالية من طرق تنمية الوعي الذاتي."},{"u":2,"src":"site","t":"mc","q":"من أسباب أهمية الوعي الذاتي","o":["الاعتماد على الآخرين في القرارات","تحسين اتخاذ القرار","تقليل الثقة بالنفس","تجاهل المشاعر"],"a":1,"why":"أسباب أهميته: معرفة نقاط القوة والضعف، تحسين اتخاذ القرار، زيادة الثقة بالنفس، معايشة اللحظة الحالية، وغيرها."},{"u":2,"src":"site","t":"mc","q":"في سياق اليقظة الذهنية، الاهتمام بأفكارنا ومشاعرنا من دون الحكم عليها يسمى ......","o":["القبول","اللحظة الحالية","الوعي","الدافع"],"a":0,"why":"هذا تعريف القبول في سياق اليقظة الذهنية."},{"u":1,"src":"site","t":"mc","q":"التفكير الإبداعي والتوازن والقدرة على التحمل العضلي أمثلة على ......","o":["المهارة","القدرة","الذاكرة الإجرائية","المعرفة"],"a":1,"why":"هذه أمثلة القدرة في جدول المقارنة بين المفاهيم الثلاثة."},{"u":3,"src":"site","t":"tf","q":"التخيل من أغراض التواصل ويعني الإفصاح عن المشاعر والرغبات","o":["True","False"],"a":1,"why":"الإفصاح عن المشاعر هو التعبير. التخيل هو استخدام التواصل في الإبداع وتصور الحلول."},{"u":3,"src":"new","t":"mc","q":"من مبادئ التواصل الفعال","o":["تجنب الحشو","التوقيت الذكي","جميع البدائل صحيحة","فهم الجمهور"],"a":2,"why":"كلها من مبادئ التواصل الفعال في الوحدة."},{"u":3,"src":"site","t":"mc","q":"من مجالات تطبيق التواصل المرئي","o":["الرسائل الصوتية","المحادثات الشخصية","المكالمات الهاتفية","الإعلانات التجارية والعروض التقديمية الأكاديمية"],"a":3,"why":"ويطبق أيضاً في حملات التوعية العامة."},{"u":3,"src":"site","t":"mc","q":"المرحلة الأولى من مراحل عملية التواصل","o":["تلقي الرسالة","تحديد المصدر والرسالة","إرسال الرسالة","إقرار المتلقي بالفهم"],"a":1,"why":"تبدأ العملية باختيار الشخص المناسب وصياغة الرسالة."},{"u":3,"src":"past","t":"mc","q":"على الأعضاء المشاركة بأفكارهم خلال الاجتماعات","o":["لتعزيز الإبداع وبناء التواصل الفعال","للامتثال للقرارات فقط","للتقليل من النقاشات","لتجنب أي حوار"],"a":0,"why":"إشراك المستمعين وفتح باب النقاش من مبادئ التواصل الفعال."},{"u":1,"src":"new","t":"tf","q":"حسب نموذج VARK، يتعلم المتعلم الحركي بشكل أفضل عن طريق الاستماع إلى المحاضرات والمناقشات والمواد الصوتية","o":["True","False"],"a":1,"why":"هذا وصف المتعلم السمعي. الحركي يتعلم بالتجربة العملية والمشاركة الجسدية."},{"u":3,"src":"site","t":"mc","q":"جعل الرسالة مختصرة ومباشرة وتجنب الكلمات أو المعلومات غير الضرورية","o":["الإيجاز","الواقعية","الدقة","الملاءمة"],"a":0,"why":"من مبادئ الكتابة القوية."},{"u":1,"src":"site","t":"tf","q":"الحرمان من النوم لا يؤثر على التعلم لأن النوم مجرد راحة للجسد","o":["True","False"],"a":1,"why":"أثناء النوم يعالج الدماغ المعلومات ويرسخها من قصيرة المدى إلى طويلة المدى، والحرمان منه يؤثر سلباً على التعلم."},{"u":2,"src":"site","t":"tf","q":"حل المشكلات من المصطلحات المرتبطة بإدارة الذات","o":["True","False"],"a":0,"why":"كما في جدول مصطلحات إدارة الذات."},{"u":1,"src":"new","t":"tf","q":"حسب نظرية معالجة المعلومات، تمر المعلومات بالمراحل التالية: المدخلات ثم المعالجة ثم التخزين ثم المخرجات","o":["True","False"],"a":0,"why":"هذا الترتيب الصحيح كما في الوحدة."},{"u":2,"src":"past","t":"mc","q":"حسب نافذة جوهاري، المنطقة التي لا يعرفها الآخرون عن الفرد ويعرفها الفرد عن ذاته تسمى","o":["المنطقة العمياء","المنطقة المكشوفة","منطقة الأسرار (القناع)","المنطقة المجهولة"],"a":2,"why":"القناع أو المنطقة الخفية: أنت تعرف والآخرون لا يعرفون."},{"u":1,"src":"site","t":"tf","q":"القراءة الجهرية هي الخيار الأمثل في المكتبات","o":["True","False"],"a":1,"why":"القراءة الصامتة هي الأمثل للمكتبات والتركيز العميق، والجهرية لا تناسب المكتبات."},{"u":1,"src":"site","t":"tf","q":"التفويض الذكي يعني التخلي عن المسؤولية","o":["True","False"],"a":1,"why":"التفويض ليس تخلياً عن المسؤولية، بل استثمار في إنتاجية الفريق."},{"u":1,"src":"site","t":"tf","q":"يفضل المتعلم الحركي التعلم من خلال التجربة العملية والمحاكاة","o":["True","False"],"a":0,"why":"النمط الحركي (Kinesthetic) يفضل التجربة العملية والأنشطة التفاعلية والمحاكاة."},{"u":2,"src":"site","t":"tf","q":"أصحاب الذكاء العاطفي العالي يسهل على الآخرين إزعاجهم","o":["True","False"],"a":1,"why":"يصعب أن يزعجهم الآخرون لأنهم راضون عن أنفسهم ولديهم فهم عميق لذواتهم."},{"u":3,"src":"new","t":"mc","q":"من عناصر تحويل لغة الجسد إلى أداة تواصل قوية","o":["القصد","الوعي الذاتي","جميع البدائل صحيحة","المحاكاة الواعية"],"a":2,"why":"العناصر: الوعي الذاتي، القصد، الوضوح، المحاكاة الواعية."},{"u":1,"src":"site","t":"tf","q":"كلما زادت الممارسة قلّ الوقت الذي يقضيه المتعلم في المرحلة الارتباطية","o":["True","False"],"a":0,"why":"من خصائص المرحلة الارتباطية أن مدتها تقل مع زيادة الممارسة والتدريب."},{"u":2,"src":"new","t":"tf","q":"الذكاء العقلي يرتبط بالمعرفة والتحصيل، والذكاء العاطفي يرتبط بالمشاعر والسلوك، وكلاهما ضروري للنجاح","o":["True","False"],"a":0,"why":"من مقارنة الذكاء العقلي والعاطفي في الوحدة."}],[{"u":1,"src":"site","t":"tf","q":"الانتباه هو البوابة الأولى للذاكرة","o":["True","False"],"a":0,"why":"أول مفاتيح تقوية الذاكرة: التركيز العميق يسمح بانتقال المعلومات من الذاكرة الحسية إلى طويلة المدى."},{"u":3,"src":"site","t":"mc","q":"القدرة على قراءة لغة الجسد ترتبط في الوحدة بـ ......","o":["الذكاء العاطفي","التواصل المكتوب","التخيل","التوقعات الاجتماعية"],"a":0,"why":"قراءة لغة الجسد تعزز فاعلية التصرف في المواقف المختلفة."},{"u":3,"src":"site","t":"tf","q":"مراعاة لغة الجسد والتواصل البصري تكون في مرحلة تحديد نوع التواصل","o":["True","False"],"a":0,"why":"مع اختيار الوسيلة واستخدام أساليب يفهمها الآخرون بسهولة."},{"u":2,"src":"new","t":"tf","q":"يمكن التنبؤ بنجاح الفرد في الحياة العملية بالذكاء العام أكثر من الذكاء العاطفي","o":["True","False"],"a":1,"why":"العكس: الذكاء العاطفي يتنبأ بالنجاح العملي أكثر، والذكاء العام متنبئ جيد بالنجاح الأكاديمي."},{"u":1,"src":"site","t":"mc","q":"كتابة «حل اختبارين ومراجعة الأخطاء» بدلاً من «الدراسة للامتحان» مثال على ......","o":["التفويض الذكي","تحديد الأهداف بوضوح","قول «لا»","تحديد الأولويات"],"a":1,"why":"الأهداف المحددة تزيد التركيز وتساعد في قياس التقدم بدقة."},{"u":1,"src":"past","t":"mc","q":"استعدادات فطرية ومواهب وملكات موجودة مع الإنسان، تتشكل وتنمو وتتطور معه خلال مراحل حياته","o":["المهارة","القدرة","القيادة","الكفاءة"],"a":1,"why":"القدرة موهبة أو استعداد فطري، ومصدرها فطري يتطور عبر مراحل الحياة."},{"u":3,"src":"site","t":"mc","q":"أي مما يلي مثال على التواصل غير اللفظي؟","o":["التقرير المكتوب","البريد الإلكتروني","تعابير الوجه","الخطاب الجماهيري"],"a":2,"why":"التواصل غير اللفظي يتم دون كلمات، مثل تعابير الوجه والإيماءات."},{"u":2,"src":"site","t":"mc","q":"القيادة والعمل الجماعي وحل النزاعات مصطلحات ترتبط بمكون ......","o":["إدارة الذات","الوعي الاجتماعي","الوعي الذاتي","إدارة العلاقات"],"a":3,"why":"مصطلحات إدارة العلاقات: القيادة، العمل الجماعي، التواصل، حل النزاعات، الإرشاد، الدعم والتأثير."},{"u":2,"src":"site","t":"tf","q":"يرتبط الوعي الذاتي بشكل وثيق بالذكاء العاطفي","o":["True","False"],"a":0,"why":"هذا ما تذكره مقدمة الوحدة."},{"u":2,"src":"new","t":"tf","q":"حسب نافذة جوهاري، كلما كبرت البقعة العمياء دلّ ذلك على عدم تقبلك للنصيحة من الآخرين وبعدهم عنك","o":["True","False"],"a":0,"why":"من خلاصة شريحة نافذة جوهاري."},{"u":1,"src":"site","t":"tf","q":"التطوير المستمر يساعد على التكيف مع المتغيرات والفجوات في المهارات بسوق العمل","o":["True","False"],"a":0,"why":"من مقدمة الوحدة: في ظل المنافسة العالمية والفجوات في المهارات، يساعد التطوير المستمر على التكيف مع المتغيرات."},{"u":1,"src":"site","t":"mc","q":"فتح آفاق جديدة للترقية والتقدم في المسار المهني يندرج تحت فائدة ......","o":["تحسين فرص التخرج","تحسين نمط الحياة","زيادة فرص التدرج الوظيفي","رعاية العائلة"],"a":2,"why":"هذا تعريف «زيادة فرص التدرج الوظيفي» في شريحة أهمية التطوير الشامل."},{"u":3,"src":"new","t":"mc","q":"التواصل الذي يُستخدم مع الأصدقاء والعائلة في المواقف الشخصية","o":["التواصل الرسمي","التواصل غير الرسمي","التواصل المرئي","التواصل المكتوب الرسمي"],"a":1,"why":"الرسمي للمحاضرات والاجتماعات والخطابات، وغير الرسمي للأصدقاء والعائلة."},{"u":2,"src":"site","t":"tf","q":"الوظائف التي تتضمن توجيه الآخرين أو تقديم الرعاية لهم تناسب ذوي الذكاء العاطفي العالي","o":["True","False"],"a":0,"why":"كما في شريحة الوظائف المناسبة."},{"u":2,"src":"site","t":"tf","q":"الوعي الاجتماعي يتيح لك فهم ما يحدث في مكان عملك وفهم أفكار الزملاء والفريق والعملاء","o":["True","False"],"a":0,"why":"كما في شريحة أثر مكونات الذكاء العاطفي في العمل."},{"u":1,"src":"new","t":"tf","q":"القدرات مواهب طبيعية أو استعدادات فطرية تُكتسب من خلال التدريب الرسمي المباشر","o":["True","False"],"a":1,"why":"القدرات تظهر دون تدريب رسمي مباشر."},{"u":3,"src":"site","t":"mc","q":"تقديم نفسك بشكل إيجابي وزيادة إنتاجيتك من فوائد مهارات التواصل في ......","o":["النجاح الشخصي والمهني","التوقعات الاجتماعية","التواصل غير الرسمي","التخيل"],"a":0,"why":"من شريحة أهمية مهارات التواصل في الحياة والعمل."},{"u":1,"src":"site","t":"tf","q":"المرحلة الارتباطية هي أقصر مراحل التعلم الحركي","o":["True","False"],"a":1,"why":"المرحلة الارتباطية هي أطول المراحل زمنياً."},{"u":3,"src":"site","t":"tf","q":"إظهار لغة جسد واضحة ومريحة يشجع الآخرين على التفاعل معك","o":["True","False"],"a":0,"why":"هذا عنصر «الوضوح» في لغة الجسد."},{"u":3,"src":"site","t":"mc","q":"أن تكون مدركاً لمشاعرك الجسدية وحركاتك أثناء الحديث لضمان التناغم","o":["الوضوح","المحاكاة الواعية","الوعي الذاتي","القصد"],"a":2,"why":"من عناصر تحويل لغة الجسد إلى أداة تواصل قوية."},{"u":2,"src":"site","t":"mc","q":"من سمات صاحب المستوى العالي من الذكاء العاطفي","o":["يستخدم الحديث السلبي مع النفس","يتجنب التغيير ويخشاه","ينظر إلى التغيير كفرصة للنمو","ينزعج بسهولة من الآخرين"],"a":2,"why":"أصحاب الذكاء العاطفي العالي يدركون أن التغيير حتمي ويتقبلونه ويستخدمونه لمصلحتهم."},{"u":1,"src":"new","t":"tf","q":"التذكر هو عملية اكتساب المعلومات لأول مرة، أما التعلم فهو استعادتها بمجهود عقلي","o":["True","False"],"a":1,"why":"العكس: التعلم هو الاكتساب، والتذكر هو استعادة ما تم تعلمه بمجهود عقلي."},{"u":2,"src":"past","t":"mc","q":"تُعرف المنطقة المكشوفة (المفتوحة) في نافذة جوهاري بأنها","o":["المنطقة التي يعرفها الفرد عن نفسه ويعرفها الآخرون عنه","المنطقة التي لا يعرفها الفرد عن نفسه ولا يعرفها الآخرون","المنطقة التي يعرفها الآخرون عن الفرد ولا يعرفها الفرد عن ذاته","المنطقة التي يعرفها الفرد عن نفسه ولا يعرفها الآخرون عنه"],"a":0,"why":"المفتوحة: أنت تعرف والآخرون يعرفون، مثل مهاراتك الظاهرة في مشاريعك."},{"u":1,"src":"site","t":"mc","q":"ضبط العادات والروتين اليومي من عناصر التنظيم ويسمى ......","o":["تنظيم الوقت","تنظيم المكان","تنظيم المهام","تنظيم الذات"],"a":3,"why":"عناصر التنظيم: تنظيم الذات (العادات والروتين)، تنظيم الوقت، تنظيم المكان."},{"u":3,"src":"new","t":"tf","q":"الاستماع المتعاطف يساعد في فهم أفكار ومشاعر الآخرين مما يعزز قبول وجهات نظرهم ويقوي العلاقات","o":["True","False"],"a":0,"why":"تعريف الاستماع المتعاطف في الوحدة."},{"u":2,"src":"new","t":"mc","q":"من سمات الشخص الذي لديه مستوى عالٍ من الذكاء العاطفي","o":["استخدام حديث النفس الإيجابي","جميع البدائل صحيحة","التعاطف مع الآخرين","الموازنة بين العمل والحياة"],"a":1,"why":"كلها من سمات صاحب الذكاء العاطفي العالي."},{"u":3,"src":"past","t":"tf","q":"تُعرّف التغذية الراجعة في عملية الاتصال بأنها الاستجابة التي يستدل بها المرسل على تأثير رسالته في المستقبل","o":["True","False"],"a":0,"why":"المرحلة الخامسة: إقرار المتلقي بالفهم من خلال الرد (التغذية الراجعة)."},{"u":3,"src":"past","t":"tf","q":"تُعرّف عملية الاتصال بأنها عملية نقل هادفة للأفكار والمعلومات والمشاعر من شخص لآخر بغرض إيجاد نوع من التفاهم المتبادل بينهما","o":["True","False"],"a":0,"why":"يتفق مع الغرض الجوهري للتواصل: نقل الرسائل بوضوح لضمان الفهم التام بين الأطراف."},{"u":1,"src":"new","t":"mc","q":"من خصائص المعرفة","o":["جميع البدائل صحيحة","قابلة للتخزين والتدوين والنقل","نظرية بطبيعتها","تُكتسب من خلال التعليم والتعلم"],"a":0,"why":"كل الخيارات من خصائص المعرفة المذكورة في الوحدة."},{"u":1,"src":"site","t":"mc","q":"ربط المعلومات الجديدة بما تعرفه مسبقاً يخلق «خطافات» عقلية تسهّل الاسترجاع، وهذا مفتاح ......","o":["الانتباه","التصور البصري","السياق والربط المعرفي","النوم"],"a":2,"why":"الدماغ يعمل كشبكة مترابطة، والربط بالمعرفة السابقة يسهّل الاسترجاع لاحقاً."},{"u":3,"src":"site","t":"mc","q":"بعد جائحة كوفيد-19 أصبح ...... مهارة حيوية","o":["الخطاب الجماهيري","التواصل غير الرسمي","التواصل الورقي","التواصل عبر الإنترنت"],"a":3,"why":"ويتطلب الوضوح والاختصار لتعويض غياب التواصل الجسدي المباشر."},{"u":1,"src":"site","t":"mc","q":"فهم عميق وتحليل للنص جملة بجملة","o":["القراءة المسحية","القراءة المتأنية","القراءة السريعة","القراءة النقدية"],"a":1,"why":"القراءة المتأنية (تحليلية) ضرورية للمواد الصعبة وكتابة التقارير الدقيقة."},{"u":3,"src":"site","t":"tf","q":"التواصل غير الرسمي يُستخدم في المحاضرات واجتماعات العمل والخطابات","o":["True","False"],"a":1,"why":"هذا التواصل الرسمي. غير الرسمي يستخدم مع الأصدقاء والعائلة."},{"u":1,"src":"site","t":"tf","q":"الذكاء حسب الوحدة هو القدرة على حفظ المعلومات فقط","o":["True","False"],"a":1,"why":"الذكاء هو القدرة على اكتساب المعرفة والمهارات وتطبيقها."},{"u":2,"src":"site","t":"mc","q":"فائدة الوعي الذاتي التي تساعد على وضع أهداف واقعية مرتبطة بإمكاناتك الحقيقية","o":["تعزيز الثقة بالنفس","تحسين الذكاء العاطفي","الصدق","تحديد الأهداف بوضوح"],"a":3,"why":"تحديد الأهداف بوضوح يربط الأهداف بالإمكانات الحقيقية ويزيد الدافعية للإنجاز."},{"u":3,"src":"site","t":"mc","q":"هدف التواصل المرئي","o":["تزيين العرض فقط","تقليل التأثير العاطفي","نقل المعلومات المعقدة بشكل مبسط وجذاب","زيادة كمية النص المكتوب"],"a":2,"why":"وهذا يعزز التأثير العاطفي والوضوح."},{"u":2,"src":"site","t":"tf","q":"الوعي الذاتي يدعم اتخاذ قرارات سريعة ومتسرعة","o":["True","False"],"a":1,"why":"الوعي الذاتي يدعم اتخاذ قرارات واعية وغير متسرعة، ويربط القرار بالقيم والأهداف."},{"u":1,"src":"past","t":"mc","q":"الذكاء المكاني (البصري) يعني","o":["القدرة على التخيل والتصور البصري والفراغي","القدرة على التواصل مع الآخرين","القدرة على تكوين الجمل","القدرة على التأمل الذاتي"],"a":0,"why":"حسب جاردنر، الذكاء المكاني هو القدرة على التخيل والتصور البصري والفراغي. (في المنهج القديم كانت الإجابة «قوة الملاحظة».)"},{"u":2,"src":"past","t":"mc","q":"يُعرّف الذكاء العاطفي بأنه","o":["لا توجد إجابة صحيحة","القدرة على ضبط الانفعالات الشخصية فقط","مجموعة من الصفات التي تمكّن الشخص من تفهم انفعالات الآخرين فقط","قدرة الفرد على فهم عواطفه واستخدامها وإدارتها بطرق إيجابية"],"a":3,"why":"هذا تعريف الذكاء العاطفي في الوحدة الثانية."},{"u":2,"src":"site","t":"tf","q":"الذكاء العاطفي يرتبط بالمعرفة والتحصيل فقط","o":["True","False"],"a":1,"why":"الذكاء العاطفي يرتبط بالمشاعر والسلوك، أما المعرفة والتحصيل فهي الذكاء العقلي."}]];
+const UNIT_NAMES={1:"الوحدة 1",2:"الوحدة 2",3:"الوحدة 3"};
+const ORD=["الأول","الثاني","الثالث","الرابع","الخامس","السادس","السابع"];
+const LETTERS=["a.","b.","c.","d."];
+const KEY="gr118-exams-v1";
+const SVG_PICK='<svg class="i-pick" viewBox="0 0 12 12"><circle cx="6" cy="6" r="2.6" fill="currentColor"/></svg>';
+const SVG_OK='<svg class="i-ok" viewBox="0 0 12 12"><path d="M2.2 6.3l2.4 2.4 5.2-5.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const SVG_NO='<svg class="i-no" viewBox="0 0 12 12"><path d="M3 3l6 6M9 3l-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+const IC_OK='<svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M7 12.4l3.2 3.2L17 8.8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const IC_NO='<svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M8 8l8 8M16 8l-8 8" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>';
+const IC_SKIP='<svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M8 12h8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>';
+const CHEV='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>';
+const CLOCK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+
+let store={};
+try{store=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){store={}}
+if(!store.exams)store.exams={};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){}}
+function S(i){return store.exams[i]||(store.exams[i]={status:"idle",mode:store.lastMode||"exam",answers:{},startedAt:0,finishedAt:0,attempts:0,best:null,last:null})}
+
+function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n}
+function fmtTime(ms){const s=Math.max(0,Math.round(ms/1000)),h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;const p=n=>String(n).padStart(2,"0");return h?h+":"+p(m)+":"+p(x):p(m)+":"+p(x)}
+function grade(p){return p>=90?"ممتاز":p>=80?"جيد جداً":p>=70?"جيد":p>=60?"مقبول":"يحتاج مراجعة"}
+function tally(i){const qs=EXAMS[i],a=S(i).answers;let n=0,ok=0;const per={1:[0,0],2:[0,0],3:[0,0]};qs.forEach((q,k)=>{per[q.u][1]++;const p=a[k];if(p!=null){n++;if(p===q.a){ok++;per[q.u][0]++}}});return{n,ok,per,total:qs.length}}
+
+const app=document.getElementById("app"),home=document.getElementById("home"),exam=document.getElementById("exam"),page=document.getElementById("page");
+const list=document.getElementById("list"),navTitle=document.getElementById("navTitle"),navEnd=document.getElementById("navEnd"),backBtn=document.getElementById("backBtn");
+let cur=-1,cards=[],filter="all",unitF="all",pickMode="exam",timer=null;
+
+/* ---------- home ---------- */
+function renderHome(){
+  const box=document.getElementById("examList");box.replaceChildren();
+  let done=0,sum=0,best=null;
+  EXAMS.forEach((qs,i)=>{
+    const s=S(i),t=tally(i);
+    if(s.last){done++;sum+=s.last.ok/s.last.total*100}
+    if(s.best!=null)best=Math.max(best??0,s.best);
+    const b=el("button","ecell glass");b.type="button";b.id="exam-cell-"+(i+1);
+    const ring=el("div","mring");
+    let pct=0,label="—",color="var(--accent)";
+    if(s.status==="active"){pct=t.n/t.total;label=t.n;color="var(--orange-ink)"}
+    else if(s.last){pct=s.last.ok/s.last.total;label=s.last.ok;color="var(--green)"}
+    const C=2*Math.PI*23;
+    ring.innerHTML='<svg viewBox="0 0 54 54"><circle class="track" cx="27" cy="27" r="23"/><circle class="val" cx="27" cy="27" r="23" stroke-dasharray="'+(C*pct)+' '+C+'" style="--c:'+color+(pct>0?'':';opacity:0')+'"/></svg>';
+    ring.append(el("span",null,String(label)));
+    const info=el("div","info");
+    info.append(el("span","t","الاختبار "+ORD[i]));
+    let pill,sub;
+    if(s.status==="active"){pill=el("span","pill active","جارٍ · "+(s.mode==="exam"?"اختبار فعلي":"تدريب"));sub="أجبت "+t.n+" من "+t.total}
+    else if(s.last){pill=el("span","pill done","مكتمل");sub="آخر نتيجة "+s.last.ok+"/"+s.last.total+" · أفضل "+s.best+"/"+t.total+" · "+(s.attempts===1?"محاولة واحدة":s.attempts===2?"محاولتان":s.attempts+" محاولات")}
+    else{pill=el("span","pill idle","لم يبدأ");sub="40 سؤالاً · 14 من الوحدة 1 · 13 من الوحدة 2 · 13 من الوحدة 3"}
+    info.append(pill,el("span","s",sub));
+    const go=el("span","go");go.append(el("span",null,s.status==="active"?"تابع":s.last?"راجع":"ابدأ"));go.insertAdjacentHTML("beforeend",CHEV);
+    b.append(ring,info,go);
+    b.addEventListener("click",()=>{location.hash="exam-"+(i+1)});
+    box.append(b);
+  });
+  document.getElementById("hsDone").textContent=done+"/7";
+  document.getElementById("hsAvg").textContent=done?Math.round(sum/done)+"%":"—";
+  document.getElementById("hsBest").textContent=best!=null?best+"/40":"—";
+}
+
+/* ---------- exam ---------- */
+function openExam(i){
+  cur=i;filter="all";unitF="all";
+  const s=S(i),qs=EXAMS[i];
+  app.dataset.pal=String(i+1);
+  document.getElementById("exEyebrow").textContent="GR118 · "+qs.length+" سؤالاً";
+  document.getElementById("exTitle").textContent="الاختبار "+ORD[i];
+  const chips=document.getElementById("exChips");chips.replaceChildren();
+  const pc=qs.filter(q=>q.src==="past").length,mc=qs.filter(q=>q.t==="mc").length;
+  chips.append(el("span","chip",mc+" اختيار من متعدد"),el("span","chip",(qs.length-mc)+" صح أو خطأ"),el("span","chip",pc+" وردت في اختبارات سابقة"));
+  const mchip=el("span","chip mode");mchip.id="modeChip";chips.append(mchip);
+  document.getElementById("unitSel").value="all";
+  setSeg("all");
+  buildCards();
+  refresh(false);
+  window.scrollTo({top:0});
+}
+
+function buildCards(){
+  list.replaceChildren();cards=[];
+  EXAMS[cur].forEach((q,k)=>{
+    const card=el("article","q glass");card.id="ex"+(cur+1)+"-q-"+(k+1);
+    const head=el("div","q-head");
+    head.append(el("span","q-num","سؤال "+(k+1)),el("span",null,UNIT_NAMES[q.u]),el("span",null,"·"),el("span",null,q.t==="tf"?"صح أو خطأ":"اختيار من متعدد"));
+    if(q.src==="past")head.append(el("span","past","ورد في اختبار سابق"));
+    const state=el("span","q-state");head.append(state);
+    const opts=el("div","opts");opts.setAttribute("role","group");
+    const btns=q.o.map((o,j)=>{
+      const b=el("button","opt");b.type="button";b.id="ex"+(cur+1)+"q"+k+"o"+j;
+      const dot=el("span","dot");dot.innerHTML=SVG_PICK+SVG_OK+SVG_NO;
+      b.append(dot,el("span","letter",LETTERS[j]),el("bdi","opt-text",o));
+      b.addEventListener("click",()=>choose(k,j));
+      opts.append(b);return b;
+    });
+    const fb=el("div","fb");fb.hidden=true;
+    card.append(head,el("p","q-text",q.q),opts,fb);
+    list.append(card);cards.push({card,btns,fb,state});
+  });
+}
+
+function reveals(){const s=S(cur);return s.status==="done"||s.mode==="practice"}
+
+function paint(k,fresh){
+  const s=S(cur),q=EXAMS[cur][k],c=cards[k],pick=s.answers[k];
+  c.card.classList.remove("is-ok","is-bad","is-skip");c.fb.hidden=true;c.state.textContent="";
+  c.btns.forEach(b=>{b.classList.remove("correct","wrong","dim","picked");b.disabled=false});
+  if(s.status==="idle"){c.btns.forEach(b=>b.disabled=true);return}
+  const show=s.status==="done"||(s.mode==="practice"&&pick!=null);
+  if(!show){ if(pick!=null){c.btns[pick].classList.add("picked");c.state.textContent="تمت الإجابة"} return }
+  const ok=pick===q.a,skip=pick==null;
+  c.card.classList.add(skip?"is-skip":ok?"is-ok":"is-bad");
+  c.state.textContent=skip?"بدون إجابة":ok?"صحيحة":"خاطئة";
+  c.btns.forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add("correct");else if(j===pick)b.classList.add("wrong");else b.classList.add("dim")});
+  c.fb.className="fb "+(skip?"skip":ok?"ok":"bad")+(fresh?" anim":"");c.fb.replaceChildren();
+  const ic=el("span");ic.innerHTML=skip?IC_SKIP:ok?IC_OK:IC_NO;c.fb.append(ic.firstChild);
+  c.fb.append(el("p","verdict",skip?"لم تجب على هذا السؤال":ok?"إجابة صحيحة":"إجابة خاطئة"));
+  const line=el("p");line.append("الإجابة الصحيحة: ",el("b",null,LETTERS[q.a]+" "+q.o[q.a]));
+  c.fb.append(line,el("p","why",q.why));c.fb.hidden=false;
+}
+
+function choose(k,j){
+  const s=S(cur);if(s.status!=="active")return;
+  if(s.mode==="practice"&&s.answers[k]!=null)return;
+  s.answers[k]=j;save();paint(k,true);
+  if(s.mode==="practice"&&tally(cur).n===EXAMS[cur].length){finish();return}
+  refresh(true);
+}
+
+function start(){
+  const s=S(cur);s.status="active";s.mode=pickMode;s.answers={};s.startedAt=Date.now();s.finishedAt=0;store.lastMode=pickMode;save();
+  refresh(false);
+  const first=document.getElementById("toolbar");first.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function finish(){
+  const s=S(cur),t=tally(cur);
+  s.status="done";s.finishedAt=Date.now();s.attempts=(s.attempts||0)+1;
+  s.last={ok:t.ok,total:t.total,n:t.n,ms:s.finishedAt-s.startedAt,mode:s.mode,date:s.finishedAt};
+  s.best=Math.max(s.best??0,t.ok);save();
+  refresh(false);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function resetExam(){const s=S(cur);s.status="idle";s.answers={};s.startedAt=0;s.finishedAt=0;save();setSeg("all");refresh(false);window.scrollTo({top:0,behavior:"smooth"})}
+
+function refresh(light){
+  const s=S(cur),t=tally(cur),qs=EXAMS[cur];
+  if(!light)qs.forEach((_,k)=>paint(k,false));
+  const show=reveals();
+  document.getElementById("modeChip").textContent=s.status==="idle"?"لم يبدأ":(s.mode==="exam"?"اختبار فعلي":"تدريب");
+  document.getElementById("modeSheet").hidden=s.status!=="idle";
+  document.getElementById("toolbar").hidden=s.status==="idle";
+  document.getElementById("fWrong").hidden=!show;
+  if(!show&&filter==="wrong")setSeg("all");
+  // rings
+  const ca=2*Math.PI*52,cb=2*Math.PI*38;
+  const setR=(id,v,c)=>{const e=document.getElementById(id);e.setAttribute("stroke-dasharray",(c*v)+" "+c);e.style.opacity=v>0?1:0};
+  const big=document.getElementById("ringBig"),small=document.getElementById("ringSmall");
+  if(s.status==="done"){
+    setR("rA",t.ok/t.total,ca);setR("rB",t.n/t.total,cb);
+    big.textContent=t.ok;small.textContent="من "+t.total;
+  }else if(s.status==="active"&&s.mode==="practice"){
+    setR("rA",t.n/t.total,ca);setR("rB",t.n?t.ok/t.n:0,cb);
+    big.textContent=t.ok;small.textContent="صحيحة من "+t.n;
+  }else{
+    setR("rA",t.n/t.total,ca);setR("rB",0,cb);
+    big.textContent=t.n;small.textContent="أجبت من "+t.total;
+  }
+  renderResult();
+  // floating bar
+  const bar=document.getElementById("barFloat");bar.hidden=s.status!=="active";page.classList.toggle("with-bar",s.status==="active");
+  if(s.status==="active"){
+    const bad=t.n-t.ok;
+    document.getElementById("barText").innerHTML="";
+    const bt=document.getElementById("barText");
+    if(s.mode==="exam"){bt.append("أجبت ",el("b",null,String(t.n))," من "+t.total+" · بقي "+(t.total-t.n))}
+    else{bt.append(el("b",null,String(t.ok))," صحيحة · ",el("b",null,String(bad))," خاطئة · بقي "+(t.total-t.n))}
+    const tr=document.getElementById("barTrack");tr.replaceChildren();
+    if(s.mode==="exam"){const a=el("span","t-a");a.style.width=(t.n/t.total*100)+"%";tr.append(a)}
+    else{const a=el("span","t-ok"),b=el("span","t-bad");a.style.width=(t.ok/t.total*100)+"%";b.style.width=(bad/t.total*100)+"%";tr.append(a,b)}
+    document.getElementById("barBtn").textContent=s.mode==="exam"?"تسليم الاختبار":"إنهاء التدريب";
+  }
+  tick();
+  applyFilter();
+}
+
+function renderResult(){
+  const s=S(cur),box=document.getElementById("resultCard");
+  if(s.status!=="done"||!s.last){box.hidden=true;return}
+  const t=tally(cur),pct=Math.round(t.ok/t.total*100);
+  box.replaceChildren();
+  const top=el("div","res-top");
+  const sc=el("div","res-score");
+  sc.append(el("span","eyebrow","نتيجتك"));
+  const num=el("span","num",String(t.ok));num.append(el("small",null," / "+t.total));sc.append(num);
+  sc.append(el("span","grade",grade(pct)+" · "+pct+"%"));
+  const meta=[(s.last.mode==="exam"?"اختبار فعلي":"تدريب"),"الوقت "+fmtTime(s.last.ms),"خاطئة "+(t.n-t.ok)];
+  if(t.total-t.n)meta.push("بدون إجابة "+(t.total-t.n));
+  if(s.attempts>1)meta.push("أفضل نتيجة "+s.best+"/"+t.total);
+  sc.append(el("span","meta",meta.join(" · ")));
+  top.append(sc);box.append(top);
+  const ub=el("div","units-break");
+  [1,2,3].forEach(u=>{const [o,n]=t.per[u];const c=el("div","ub");c.append(el("span","l",UNIT_NAMES[u]),el("span","v",o+"/"+n));const bar=el("div","bar"),f=el("span");f.style.width=(n?o/n*100:0)+"%";bar.append(f);c.append(bar);ub.append(c)});
+  box.append(ub);
+  const acts=el("div","res-actions");
+  const w=el("button","btn tint small","عرض الأخطاء فقط");w.type="button";w.id="resWrong";w.addEventListener("click",()=>{setSeg("wrong");applyFilter();document.getElementById("toolbar").scrollIntoView({behavior:"smooth",block:"start"})});
+  const r=el("button","btn secondary small","إعادة الاختبار");r.type="button";r.id="resRetry";r.addEventListener("click",()=>ask("إعادة الاختبار؟","راح تنمسح إجاباتك في هذا الاختبار، وتبقى أفضل نتيجة محفوظة.","إعادة",resetExam,true));
+  const h=el("button","btn secondary small","كل الاختبارات");h.type="button";h.id="resHome";h.addEventListener("click",()=>{location.hash=""});
+  acts.append(w,r,h);box.append(acts);
+  box.hidden=false;
+}
+
+function setSeg(f){filter=f;document.querySelectorAll(".seg button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.f===f)))}
+function applyFilter(){
+  if(cur<0)return;
+  const s=S(cur);let shown=0;
+  EXAMS[cur].forEach((q,k)=>{
+    const p=s.answers[k];let v=unitF==="all"||String(q.u)===unitF;
+    if(filter==="wrong")v=v&&p!==q.a&&(p!=null||s.status==="done");
+    if(filter==="open")v=v&&p==null;
+    cards[k].card.hidden=!v;if(v)shown++;
+  });
+  document.getElementById("empty").hidden=shown>0||S(cur).status==="idle";
+}
+
+function tick(){
+  navEnd.replaceChildren();
+  if(cur<0)return;
+  const s=S(cur);
+  if(s.status==="active"&&s.mode==="exam"){const c=el("span","clock");c.innerHTML=CLOCK;c.append(el("span",null,fmtTime(Date.now()-s.startedAt)));navEnd.append(c)}
+  else if(s.status==="active"){navEnd.textContent=tally(cur).n+" / "+EXAMS[cur].length}
+  else if(s.status==="done"&&s.last){navEnd.textContent=s.last.ok+" / "+s.last.total}
+}
+
+/* ---------- confirm dialog ---------- */
+const scrim=document.getElementById("scrim");let dlgAction=null;
+function ask(title,text,yes,fn,danger){
+  document.getElementById("dlgTitle").textContent=title;document.getElementById("dlgText").textContent=text;
+  const y=document.getElementById("dlgYes");y.textContent=yes;y.className="btn"+(danger?" danger":"");
+  dlgAction=fn;scrim.hidden=false;y.focus();
+}
+function closeDlg(){scrim.hidden=true;dlgAction=null}
+document.getElementById("dlgNo").addEventListener("click",closeDlg);
+document.getElementById("dlgYes").addEventListener("click",()=>{const f=dlgAction;closeDlg();f&&f()});
+scrim.addEventListener("click",e=>{if(e.target===scrim)closeDlg()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!scrim.hidden)closeDlg()});
+
+/* ---------- wiring ---------- */
+document.querySelectorAll(".choice").forEach(b=>b.addEventListener("click",()=>{pickMode=b.dataset.mode;document.querySelectorAll(".choice").forEach(x=>x.setAttribute("aria-checked",String(x===b)))}));
+document.getElementById("startBtn").addEventListener("click",start);
+document.querySelectorAll(".seg button").forEach(b=>b.addEventListener("click",()=>{setSeg(b.dataset.f);applyFilter()}));
+document.getElementById("unitSel").addEventListener("change",e=>{unitF=e.target.value;applyFilter()});
+document.getElementById("barBtn").addEventListener("click",()=>{
+  const s=S(cur),t=tally(cur),left=t.total-t.n;
+  if(s.mode==="exam")ask("تسليم الاختبار؟",left?"بقي "+left+" سؤال بدون إجابة، وراح تنحسب خاطئة. بعد التسليم تظهر لك الإجابات الصحيحة.":"أجبت على كل الأسئلة. بعد التسليم تظهر لك النتيجة والإجابات الصحيحة.","تسليم",finish,false);
+  else ask("إنهاء التدريب؟",left?"بقي "+left+" سؤال بدون إجابة، وراح تنحسب خاطئة.":"راح تنحسب نتيجتك الآن.","إنهاء",finish,false);
+});
+backBtn.addEventListener("click",()=>{location.hash=""});
+
+function route(){
+  const m=/^#exam-([1-7])$/.exec(location.hash);
+  closeDlg();
+  if(m){
+    const i=+m[1]-1;home.hidden=true;exam.hidden=false;backBtn.hidden=false;navTitle.textContent="الاختبار "+ORD[i];
+    pickMode=S(i).mode||store.lastMode||"exam";
+    document.querySelectorAll(".choice").forEach(x=>x.setAttribute("aria-checked",String(x.dataset.mode===pickMode)));
+    openExam(i);
+  }else{
+    cur=-1;home.hidden=false;exam.hidden=true;backBtn.hidden=true;navTitle.textContent="اختبارات GR118";app.dataset.pal="1";
+    document.getElementById("barFloat").hidden=true;page.classList.remove("with-bar");navEnd.replaceChildren();
+    renderHome();window.scrollTo({top:0});
+  }
+}
+window.addEventListener("hashchange",route);
+timer=setInterval(()=>{if(cur>=0&&S(cur).status==="active"&&S(cur).mode==="exam")tick()},1000);
+route();
+</script>
+
+</body>
+</html>
